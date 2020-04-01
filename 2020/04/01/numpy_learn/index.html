@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>numpy_learn | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#numpy笔记  numpy.random.random(size&#x3D;None) 产生[0.0, 1.0)之间的浮点数   numpy.random.uniform(low&#x3D;0.0, high&#x3D;1.0, size&#x3D;None) 生出size个符合均分布的浮点数，取值范围为[low, high)，默认取值范围为[0, 1.0)   numpy.random.rand(d0, d1, …, dn) 生出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="numpy_learn">
+<meta property="og:url" content="http://yoursite.com/2020/04/01/numpy_learn/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#numpy笔记  numpy.random.random(size&#x3D;None) 产生[0.0, 1.0)之间的浮点数   numpy.random.uniform(low&#x3D;0.0, high&#x3D;1.0, size&#x3D;None) 生出size个符合均分布的浮点数，取值范围为[low, high)，默认取值范围为[0, 1.0)   numpy.random.rand(d0, d1, …, dn) 生出">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/04/01/numpy_learn/%5C20180620120922454.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/01/numpy_learn/20180620120936973.png">
+<meta property="article:published_time" content="2020-04-01T14:46:18.957Z">
+<meta property="article:modified_time" content="2020-02-10T12:49:30.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/01/numpy_learn/%5C20180620120922454.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-numpy_learn" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/01/numpy_learn/" class="article-date">
+  <time datetime="2020-04-01T14:46:18.957Z" itemprop="datePublished">2020-04-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      numpy_learn
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#numpy笔记</p>
+<ul>
+<li><strong>numpy.random.random(size=None)</strong><ul>
+<li>产生[0.0, 1.0)之间的浮点数</li>
+</ul>
+</li>
+<li><strong>numpy.random.uniform(low=0.0, high=1.0, size=None)</strong><ul>
+<li>生出size个符合均分布的浮点数，取值范围为[low, high)，默认取值范围为[0, 1.0)</li>
+</ul>
+</li>
+<li><strong>numpy.random.rand(d0, d1, …, dn)</strong><ul>
+<li>生出size个符合均分布的浮点数，取值范围为[low, high)，默认取值范围为[0, 1.0)</li>
+</ul>
+</li>
+<li><strong>numpy.random.randint(low, high=None, size=None, dtype=’I’)</strong><ul>
+<li>生成size个整数，取值区间为[low, high)，若没有输入参数high则取值区间为[0, low)</li>
+</ul>
+</li>
+<li><strong>numpy.random.random_integers(low, high=None, size=None)</strong><ul>
+<li>生成size个整数，取值区间为[low, high], 若没有输入参数high则取值区间为[1, low]，注意这里左右都是闭区间</li>
+</ul>
+</li>
+<li><strong>numpy.arange()</strong></li>
+<li><strong>numpy.nonzero()</strong></li>
+<li><strong>chararray.mean()</strong></li>
+<li><strong>numpy.pad(a, (1, 1), mode=’constant’, constant_values=0)</strong></li>
+<li><strong>chararray.max(),    chararray.min()</strong></li>
+</ul>
+<hr>
+<p><strong>数组取整</strong></p>
+<ul>
+<li><strong>numpy.ceil(x,)</strong><br>向正无穷取整</li>
+<li><strong>numpy.floor(x,)</strong><br>向负无穷取整</li>
+<li><strong>numpy.trunc/fix(x,)</strong><br>截取整数部分</li>
+<li><strong>numpy.rint(x,)</strong><br>四舍五入到最近整数</li>
+<li><strong>numpy.around(x,)</strong><br>四舍五入到给定的小数位</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>chararray.size</strong></p>
+<ul>
+<li>总元素个数</li>
+</ul>
+</li>
+<li><p><strong>chararray.itemsize</strong></p>
+<ul>
+<li>单个元素所占的内存</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>numpy.chararray.ndim</strong></p>
+<ul>
+<li>array的维数<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">x.ndim</span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line">y = np.zeros((<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line">y.ndim</span><br><span class="line"><span class="comment"># 3</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>numpy.allclose(a, b, rtol=1e-05, atol=1e-08, equal_nan=False)</strong></p>
+<ul>
+<li>比较浮点数之间的近似相等，假设二者具有相同形状<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">np.allclose(<span class="number">0.3</span>, <span class="number">3</span> * <span class="number">0.1</span>)</span><br><span class="line"><span class="comment"># True</span></span><br><span class="line">A = np.random.randint(<span class="number">0</span>,<span class="number">2</span>,<span class="number">5</span>)</span><br><span class="line">B = np.random.randint(<span class="number">0</span>,<span class="number">2</span>,<span class="number">5</span>)</span><br><span class="line"><span class="comment"># Assuming identical shape of the arrays and a tolerance for the comparison of values</span></span><br><span class="line">equal = np.allclose(A,B)</span><br><span class="line"><span class="comment"># False</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>numpy.array_equal(a1, a2)</strong></p>
+<ul>
+<li>比较数组是否具有相同形状和数值<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Checking both the shape and the element values, </span></span><br><span class="line"><span class="comment"># no tolerance (values have to be exactly equal)</span></span><br><span class="line">equal = np.array_equal(A,B)</span><br><span class="line"><span class="comment"># False</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>numpy.diag(v, k=0)</strong></p>
+<blockquote>
+<blockquote>
+<p><strong>Parameters</strong></p>
+</blockquote>
+<ul>
+<li>v : array_like<br>若v为2D数组，返回其第k对角线上的1D数组；<br>若v为1D数组，返回以其为第k对角线的2D数组</li>
+<li>k : int, optional<br>默认值为0；<blockquote>
+<p><strong>Returns</strong></p>
+</blockquote>
+</li>
+<li>out : ndarray<br>The extracted diagonal or constructed diagonal array.</li>
+</ul>
+</blockquote>
+<hr>
+<p><strong>数组切片</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line"><span class="comment"># array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span></span><br><span class="line"><span class="comment"># [start : end : step]</span></span><br><span class="line"><span class="comment"># 切取[start, end)范围的元素</span></span><br><span class="line"><span class="comment"># step&gt;0时,end&gt;start,从起点到终点</span></span><br><span class="line"><span class="comment"># step&lt;0时,start&gt;end,从终点到起点</span></span><br><span class="line"><span class="comment"># 注意[::]只是两个:结合，而不是新的符号！</span></span><br><span class="line"><span class="comment"># 逆序</span></span><br><span class="line">a[::<span class="number">-1</span>]</span><br><span class="line"><span class="comment"># array([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])</span></span><br><span class="line"><span class="comment"># 指定下标开始逆序</span></span><br><span class="line">a[<span class="number">3</span>::<span class="number">-1</span>]</span><br><span class="line"><span class="comment"># array([3, 2, 1, 0])</span></span><br><span class="line"><span class="comment"># 选择指定间隔的下标</span></span><br><span class="line">a = np.zeros(<span class="number">10</span>)</span><br><span class="line">a[::<span class="number">2</span>] = <span class="number">1</span></span><br><span class="line"><span class="comment"># array([1., 0., 1., 0., 1., 0., 1., 0., 1., 0.])</span></span><br><span class="line">b = np.zeros(<span class="number">10</span>)</span><br><span class="line">b[<span class="number">1</span>::<span class="number">2</span>] = <span class="number">1</span></span><br><span class="line"><span class="comment"># array([0., 1., 0., 1., 0., 1., 0., 1., 0., 1.])</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>数组运算</strong></p>
+<ul>
+<li><strong>numpy.dot(a, b)</strong></li>
+<li><strong>a @ b</strong><ul>
+<li>矩阵 向量乘法</li>
+</ul>
+</li>
+<li><strong>a ** b</strong><br>数组之间的运算是元素一一对应进行运算的<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">a ** a</span><br><span class="line"><span class="comment"># array([        1,         1,         4,  #       27,       256,      3125,</span></span><br><span class="line"><span class="comment">#           46656,    823543,  16777216, 387420489])</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>numpy.unravel_index(indices, shape, order=’C’)</strong></p>
+<ul>
+<li>indices中的值对应于shape维度的数组展开为一维数组的下标，返回indices在shape维度下的下标</li>
+<li>默认为以行为主展开，indices可为整数或整数数组<blockquote>
+<blockquote>
+<p><strong>Parameters</strong></p>
+</blockquote>
+<ul>
+<li>indices : array_like</li>
+<li>shape : tuple of ints</li>
+<li>order : {‘C’, ‘F’}, optional<ul>
+<li>C(row-major) : 以行为主</li>
+<li>F(column-major) : 以列为主<blockquote>
+<p><strong>Returns</strong></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>unraveled_coords : tuple of ndarray<br>与indices维度相同</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.unravel_index([<span class="number">22</span>, <span class="number">41</span>, <span class="number">37</span>], (<span class="number">7</span>,<span class="number">6</span>))</span><br><span class="line"><span class="comment"># (array([3, 6, 6]), array([4, 5, 1]))</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>numpy.newaxis</strong></p>
+<ul>
+<li>在插入的位置增加一个维度<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line"><span class="comment"># the shape of x1 is (5,)</span></span><br><span class="line">x_new = x[:, np.newaxis]</span><br><span class="line"><span class="comment"># now, the shape of x1_new is (5, 1)</span></span><br><span class="line"><span class="comment"># array([[1],</span></span><br><span class="line"><span class="comment">#        [2],</span></span><br><span class="line"><span class="comment">#        [3],</span></span><br><span class="line"><span class="comment">#        [4],</span></span><br><span class="line"><span class="comment">#        [5]])</span></span><br><span class="line">x_new = x[np.newaxis, np.newaxis, :]</span><br><span class="line"><span class="comment"># now, the shape of x1_new is (1, 1, 5)</span></span><br><span class="line"><span class="comment"># array([[[1, 2, 3, 4, 5]]])</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.newaxis == <span class="literal">None</span></span><br><span class="line"><span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>numpy.sort(a, axis=-1, kind=None, order=None)</strong></p>
+<ul>
+<li>沿axis维度对输入数组进行排序</li>
+<li>axis为None时，先将数组展开为1D，再进行排序<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[<span class="number">1</span>,<span class="number">4</span>],[<span class="number">3</span>,<span class="number">1</span>]])</span><br><span class="line">np.sort(a)                <span class="comment"># sort along the last axis</span></span><br><span class="line"><span class="comment"># 默认为axis=-1，此处为axis=1即列，便于理解，即排序的结果是逐列递增</span></span><br><span class="line"><span class="comment"># 直观上显示是分别对每行进行排序</span></span><br><span class="line"><span class="comment"># array([[1, 4],</span></span><br><span class="line"><span class="comment">#        [1, 3]])</span></span><br><span class="line">np.sort(a, axis=<span class="literal">None</span>)     <span class="comment"># sort the flattened array</span></span><br><span class="line"><span class="comment"># array([1, 1, 3, 4])</span></span><br><span class="line">np.sort(a, axis=<span class="number">0</span>)        <span class="comment"># sort along the first axis</span></span><br><span class="line"><span class="comment"># array([[1, 1],</span></span><br><span class="line"><span class="comment">#        [3, 4]])</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>numpy.argsort(a, axis=-1, kind=None, order=None)</strong></p>
+<ul>
+<li>与numpy.sort()类似的排序函数，返回的是排序的下标</li>
+<li>常与numpy.take_along_axis()等函数结合用于排序</li>
+</ul>
+<hr>
+<p><strong>numpy.take_along_axis(arr, indices, axis)</strong></p>
+<ul>
+<li>迭代地沿着特定axis方向按照index匹配并返回数据数组的1D数据切片</li>
+<li>使用argsort、argpartition等沿指定axis方向返回索引的函数生成该函数的index参数</li>
+<li>常用于排序<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([[<span class="number">0</span>, <span class="number">3</span>], [<span class="number">2</span>, <span class="number">2</span>]])</span><br><span class="line">x</span><br><span class="line"><span class="comment"># array([[0, 3],</span></span><br><span class="line"><span class="comment">#        [2, 2]])</span></span><br><span class="line">ind = np.argsort(x, axis=<span class="number">0</span>)  <span class="comment"># sorts along first axis (down)</span></span><br><span class="line">ind</span><br><span class="line"><span class="comment"># array([[0, 1],</span></span><br><span class="line"><span class="comment">#        [1, 0]])</span></span><br><span class="line">np.take_along_axis(x, ind, axis=<span class="number">0</span>)  <span class="comment"># same as np.sort(x, axis=0)</span></span><br><span class="line"><span class="comment"># array([[0, 2],</span></span><br><span class="line"><span class="comment">#        [2, 3]])</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ind = np.unravel_index(np.argsort(x, axis=<span class="literal">None</span>), x.shape)</span><br><span class="line">ind</span><br><span class="line"><span class="comment"># (array([0, 1, 1, 0]), array([0, 0, 1, 1]))</span></span><br><span class="line">x[ind]  <span class="comment"># same as np.sort(x, axis=None)</span></span><br><span class="line"><span class="comment"># array([0, 2, 2, 3])</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>numpy.expand_dims(a, axis)</strong></p>
+<ul>
+<li>在axis的位置插入一个维度</li>
+<li>axis可为整数或整数的元组，注意插入的维度不应该超出原数组的范围<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([<span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line">print(x.shape)</span><br><span class="line"><span class="comment"># (2,)</span></span><br><span class="line">y = np.expand_dims(x, axis=(<span class="number">0</span>, <span class="number">2</span>))</span><br><span class="line">print(y.shape)</span><br><span class="line"><span class="comment"># (1, 2, 1)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>numpy.argmax(a, axis=None, out=None)</strong></p>
+<ul>
+<li>返回沿axis方向的最大值索引<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([[<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">1</span>,<span class="number">0</span>,<span class="number">3</span>]])</span><br><span class="line">index_array = np.argmax(x, axis=<span class="number">-1</span>)</span><br><span class="line"><span class="comment"># array([0, 2])</span></span><br><span class="line"><span class="comment"># Same as np.max(x, axis=-1, keepdims=True)</span></span><br><span class="line">np.take_along_axis(x, np.expand_dims(index_array, axis=<span class="number">-1</span>), axis=<span class="number">-1</span>)</span><br><span class="line"><span class="comment"># array([[4],</span></span><br><span class="line"><span class="comment">#        [3]])</span></span><br><span class="line"><span class="comment"># Same as np.max(x, axis=-1)</span></span><br><span class="line">np.take_along_axis(x, np.expand_dims(index_array, axis=<span class="number">-1</span>), axis=<span class="number">-1</span>).squeeze(axis=<span class="number">-1</span>)</span><br><span class="line"><span class="comment"># array([4, 3])</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>numpy.tile(A, reps)</strong></p>
+<ul>
+<li>返回将A重复reps次的数组</li>
+<li>如果reps维度为d，函数结果的维度为max(d, A.ndim)</li>
+<li>即reps和A中纬度低的一个会扩张维度到与另一个相同的维度<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line">a.shape</span><br><span class="line"><span class="comment"># (3,)</span></span><br><span class="line">np.tile(a, <span class="number">2</span>)</span><br><span class="line"><span class="comment"># array([0, 1, 2, 0, 1, 2])</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># a扩张到与b相同的维度，二者结果相同</span></span><br><span class="line">b = np.array([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]])</span><br><span class="line">b.shape</span><br><span class="line"><span class="comment"># (1, 3)</span></span><br><span class="line">np.tile(a, (<span class="number">2</span>, <span class="number">1</span>))</span><br><span class="line"><span class="comment"># array([[0, 1, 2],</span></span><br><span class="line"><span class="comment">#        [0, 1, 2]])</span></span><br><span class="line">np.tile(b, (<span class="number">2</span>, <span class="number">1</span>))</span><br><span class="line"><span class="comment"># array([[0, 1, 2],</span></span><br><span class="line"><span class="comment">#        [0, 1, 2]])</span></span><br><span class="line"></span><br><span class="line">np.tile(a, (<span class="number">2</span>, <span class="number">2</span>))</span><br><span class="line"><span class="comment"># array([[0, 1, 2, 0, 1, 2],</span></span><br><span class="line"><span class="comment">#        [0, 1, 2, 0, 1, 2]])</span></span><br><span class="line">np.tile(a, (<span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line"><span class="comment"># array([[[0, 1, 2, 0, 1, 2]],</span></span><br><span class="line"><span class="comment">#        [[0, 1, 2, 0, 1, 2]]])</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>and, or, &amp;, |</strong></p>
+<ul>
+<li>在DataFrame的切片过程，要注意逻辑变量的使用,需要求得满足多个逻辑条件的数据时，要使用&amp; 和|，在某些条件下用and/ or会报错<br>ValueError : The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()</li>
+</ul>
+<hr>
+<p><strong>numpy.copysign(a, b)</strong></p>
+<ul>
+<li>将b中的符号赋予a</li>
+</ul>
+<hr>
+<p><strong>numpy.seterr(all=None, divide=None, over=None, under=None, invalid=None)</strong></p>
+<ul>
+<li>设置对浮点错误的处理方式<blockquote>
+<blockquote>
+<p><strong>Parameters</strong></p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<p><em>all{‘ignore’, ‘warn’, ‘raise’, ‘call’, ‘print’, ‘log’}, optional</em><br>Set treatment for all types of floating-point errors at once:</p>
+<blockquote>
+<ul>
+<li>ignore: Take no action when the exception occurs.</li>
+<li>warn: Print a RuntimeWarning (via the Python warnings module).</li>
+<li>raise: Raise a FloatingPointError.</li>
+<li>call: Call a function specified using the seterrcall function.</li>
+<li>print: Print a warning directly to stdout.</li>
+<li>log: Record error in a Log object specified by seterrcall.<br>The default is not to change the current behavior.<blockquote>
+<p><strong>Returns</strong></p>
+</blockquote>
+</li>
+<li>old_settings: dict<br>Dictionary containing the <u>old settings</u>.</li>
+</ul>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># numpy.seterr()返回的是本次处理之前的设置</span></span><br><span class="line">old_setting = np.seterr(all=<span class="string">'ignore'</span>)</span><br><span class="line">np.seterr(over=<span class="string">'raise'</span>)</span><br><span class="line"><span class="comment"># &#123;'divide': 'ignore', 'over': 'ignore', 'under': 'ignore', 'invalid': 'ignore'&#125;</span></span><br><span class="line"><span class="comment"># old_setting存储之前的设置</span></span><br><span class="line">np.seterr(**old_setting)</span><br><span class="line"><span class="comment"># &#123;'divide': 'ignore', 'over': 'raise', 'under': 'ignore', 'invalid': 'ignore'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用OrderedDict获取本次处理后的设置</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</span><br><span class="line">np.seterr(all=<span class="string">'ignore'</span>)</span><br><span class="line">OrderedDict(np.geterr())</span><br><span class="line"><span class="comment"># OrderedDict([('divide', 'ignore'), ('over', 'ignore'), ('under', 'ignore'), ('invalid', 'ignore')])</span></span><br><span class="line">np.seterr(over=<span class="string">'raise'</span>)</span><br><span class="line">OrderedDict(np.geterr())</span><br><span class="line"><span class="comment"># OrderedDict([('divide', 'ignore'), ('over', 'raise'), ('under', 'ignore'), ('invalid', 'ignore')])</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>numpy.intersect1d(ar1, ar2, assume_unique=False, return_indices=False)</strong></p>
+<ul>
+<li>查找两个数组的交集</li>
+<li>返回经过排序的唯一值<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = np.random.randint(<span class="number">0</span>, <span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line">array([<span class="number">3</span>, <span class="number">8</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">8</span>])</span><br><span class="line">b = np.random.randint(<span class="number">0</span>, <span class="number">10</span> ,<span class="number">10</span>)</span><br><span class="line">array([<span class="number">4</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">6</span>])</span><br><span class="line">c = np.intersect1d(a, b)</span><br><span class="line">array([<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>])</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>numpy.datetime64()</strong></p>
+<ul>
+<li>日期类型<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">np.datetime64(<span class="string">'2017-08-06'</span>)</span><br><span class="line"><span class="comment"># numpy.datetime64('2017-08-06')</span></span><br><span class="line">np.datetime64(<span class="string">'2017-08'</span> , <span class="string">'D'</span>)</span><br><span class="line"><span class="comment"># numpy.datetime64('2017-08-01')</span></span><br><span class="line"><span class="comment"># 初始化数组</span></span><br><span class="line">a = np.array([<span class="string">'2017-07-01'</span>,<span class="string">'2017-07-15'</span>,<span class="string">'2017-08-01'</span>] , dtype=np.datetime64)</span><br><span class="line"><span class="comment"># array(['2017-07-01', '2017-07-15', '2017-08-01'], dtype='datetime64[D]')</span></span><br><span class="line">a = np.arange(<span class="string">'2017-08-01'</span>,<span class="string">'2017-09-01'</span>,dtype=np.datetime64)</span><br><span class="line">a = np.arange(<span class="string">'2017-08-01'</span>,<span class="string">'2017-09-01'</span>,dtype=<span class="string">'datetime64[D]'</span>)</span><br><span class="line"><span class="comment"># array(['2017-08-01', '2017-08-02', '2017-08-03', ..., '2017-08-29',</span></span><br><span class="line"><span class="comment">#        '2017-08-30', '2017-08-31'], dtype='datetime64[D]')</span></span><br><span class="line"><span class="comment"># 日期计算</span></span><br><span class="line">today = np.datetime64(<span class="string">'today'</span>, <span class="string">'D'</span>)</span><br><span class="line">yesterday = today - np.timedelta64(<span class="number">1</span>, <span class="string">'D'</span>)</span><br><span class="line">tomorrow = today + np.timedelta64(<span class="number">1</span>, <span class="string">'D'</span>)</span><br><span class="line">print(yesterday, today, tomorrow)</span><br><span class="line"><span class="comment"># 2020-02-06 2020-02-07 2020-02-08</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)</strong></p>
+<ul>
+<li>返回start和stop之间均匀分布的向量</li>
+<li>默认为[start, stop]</li>
+<li>参数endpoint=False时为[start, stop)</li>
+</ul>
+<hr>
+<p><strong>numpy.fromiter(iterable, dtype, count=-1)</strong></p>
+<ul>
+<li>从迭代器生成数组</li>
+<li>count默认为-1，表示读取全部迭代器生成的数据<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gen</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        <span class="keyword">yield</span> i</span><br><span class="line"><span class="comment"># z = np.array([i for i in gen()])</span></span><br><span class="line">z = np.fromiter(gen(), dtype=float, count=<span class="number">-1</span>)</span><br><span class="line"><span class="comment"># array([0., 1., 2., 3., 4., 5., 6., 7., 8., 9.])</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>ufunc</strong></p>
+<ul>
+<li>即universal function，这些函数逐元素作用于narray对象</li>
+<li>这些函数在对narray进行运算的速度比使用循环或者列表推导式要快很多<br><img src="%5C20180620120922454.png" alt="ufunc1"><br><img src="20180620120936973.png" alt="ufunc2"></li>
+</ul>
+<hr>
+<p><strong>ufunc.reduce(a, axis=0, dtype=None, out=None, keepdims=False, initial=<no value>, where=True)</strong></p>
+<ul>
+<li>沿axis(默认=0)方向应用ufunc,维度减1</li>
+<li>例如，numpy.add.reduce等同于numpy.sum</li>
+</ul>
+<hr>
+<p><strong>numpy.set_printoptions(precision=None, threshold=None, edgeitems=None, linewidth=None, suppress=None, nanstr=None, infstr=None, formatter=None, sign=None, floatmode=None, *, legacy=None)</strong></p>
+<ul>
+<li>打印设置</li>
+<li>例，数组打印的默认最大元素个数为1000，可通过np.set_printoptions(threshold=np.inf)来取消限制</li>
+</ul>
+<hr>
+<p><strong>chararray.flags</strong></p>
+<ul>
+<li>数组的内存信息<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">C_CONTIGUOUS : <span class="literal">True</span></span><br><span class="line">F_CONTIGUOUS : <span class="literal">True</span></span><br><span class="line">OWNDATA : <span class="literal">True</span></span><br><span class="line">WRITEABLE : <span class="literal">True</span></span><br><span class="line">ALIGNED : <span class="literal">True</span></span><br><span class="line">WRITEBACKIFCOPY : <span class="literal">False</span></span><br><span class="line">UPDATEIFCOPY : <span class="literal">False</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/01/numpy_learn/" data-id="ck8hg8ryw000000udeac78p9g" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/01/numpy_learn/">numpy_learn</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/01/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
