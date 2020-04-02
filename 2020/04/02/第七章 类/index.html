@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="XinYS">
+
+
+
+
+
+<title>第七章 类 | XinYS&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">XinYS&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">XinYS&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">第七章 类</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">XinYS</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 2, 2020&nbsp;&nbsp;23:23:04</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/python/">python</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="第七章-类"><a href="#第七章-类" class="headerlink" title="第七章 类"></a>第七章 类</h2><p><strong>封装、隐藏</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Secretive</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self.__name = name</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__inaccessible</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Bet you can't see me."</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">accessible</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"The secret message is:"</span>)</span><br><span class="line">        self.__inaccessible()</span><br><span class="line">s = Secretive(<span class="string">'Beth'</span>)</span><br><span class="line">print(s.__name)</span><br><span class="line"><span class="comment"># AttributeError: 'Secretive' object has no attribute '__name'</span></span><br><span class="line">s.accessible()</span><br><span class="line"><span class="comment"># The secret message is:</span></span><br><span class="line"><span class="comment"># Bet you can't see me.</span></span><br><span class="line">s.__inaccessible()</span><br><span class="line"><span class="comment"># AttributeError: 'Secretive' object has no attribute '__inaccessible'</span></span><br><span class="line">s._Secretive__inaccessible()</span><br><span class="line"><span class="comment"># Bet you can't see me.</span></span><br></pre></td></tr></table></figure>
+<p><strong>类的命名空间</strong></p>
+<ul>
+<li>类的命名空间和其成员的命名空间的关系类似于前面提到的全局作用域和局部作用域的关系<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 类定义其实就是要执行的代码块</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span>:</span></span><br><span class="line">    print(<span class="string">"Class C is defined."</span>)</span><br><span class="line"><span class="comment"># Class C is defined.</span></span><br><span class="line">c = C()</span><br><span class="line"><span class="comment"># members是在类作用域下的变量</span></span><br><span class="line"><span class="comment"># 注意构造函数中是MemberCounter.members</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MemberCounter</span>:</span></span><br><span class="line">    members = <span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        MemberCounter.members += <span class="number">1</span></span><br><span class="line">m = MemberCounter()</span><br><span class="line">print(m.members)</span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line">n = MemberCounter()</span><br><span class="line">print(n.members)</span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line">print(m.members)</span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line"><span class="comment"># m这一实例中对members进行了“遮盖”</span></span><br><span class="line">m.members = <span class="string">"zero"</span></span><br><span class="line">print(m.members)</span><br><span class="line"><span class="comment"># zero</span></span><br><span class="line">print(n.members)</span><br><span class="line"><span class="comment"># 2</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>继承</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">issubclass(A, B)</span><br><span class="line"><span class="comment"># A是否为B的子类</span></span><br><span class="line">A.__bases__</span><br><span class="line"><span class="comment"># A的基类</span></span><br><span class="line">isinstance(object, <span class="class"><span class="keyword">class</span>)</span></span><br><span class="line"><span class="class"># 确定对象是否为指定类的实例</span></span><br><span class="line"><span class="class"><span class="title">a</span>.<span class="title">__class__</span></span></span><br><span class="line"><span class="class"># 对象<span class="title">a</span>所属的类</span></span><br></pre></td></tr></table></figure>
+<p><strong>多重继承</strong></p>
+<ul>
+<li>可以指定多个超类，位于前面的类的方法可以覆盖位于后面的类的方法</li>
+<li>多个超类的超类相同时，查找属性或方法的顺序为方法解析顺序（MRO）</li>
+</ul>
+<p><strong>接口和内省</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">getattr(object, name[, default])</span><br><span class="line"><span class="comment"># 获取属性的值，还可提供默认值</span></span><br><span class="line"><span class="comment"># 这里需要注意，属性的名称应为字符串格式，返回的默认值参数并没有预设的默认值</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Talker</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">talk</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"I can talk."</span>)</span><br><span class="line">t = Talker()</span><br><span class="line">print(callable(getattr(t, <span class="string">'talk'</span>)))</span><br><span class="line"><span class="comment"># True</span></span><br><span class="line">print(callable(getattr(t, <span class="string">'see'</span>)))</span><br><span class="line"><span class="comment"># AttributeError: 'Talker' object has no attribute 'see'</span></span><br><span class="line">print(callable(getattr(t, <span class="string">'see'</span>, <span class="literal">None</span>)))</span><br><span class="line"><span class="comment"># False</span></span><br><span class="line"><span class="comment"># 可以像这样提供函数作为默认值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">see</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"I can see."</span>)</span><br><span class="line">print(callable(getattr(t, <span class="string">'see'</span>, see)))</span><br><span class="line"><span class="comment"># True</span></span><br><span class="line"></span><br><span class="line">hasattr(object, name)</span><br><span class="line"><span class="comment"># 判断对象是否有指定的属性</span></span><br><span class="line">setattr(object, name, value)</span><br><span class="line"><span class="comment"># 将对象的指定属性高设置为指定的值</span></span><br></pre></td></tr></table></figure>
+<p><strong>派生、抽象基类</strong></p>
+<ul>
+<li>抽象类是不能实例化的类，其职责是定义子类应该实现的一组抽象方法<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> abc <span class="keyword">import</span> ABC, abstractmethod</span><br><span class="line"><span class="comment"># @abstractmethod为装饰器，用以将方法标记为抽象的，在子类中必须实现的方法</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Talker</span><span class="params">(ABC)</span>:</span></span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">talk</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"><span class="comment"># 由Talker派生的子类，但由于没有重写方法talk，因此这个类也是抽象的，不能实例化</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Knigget</span><span class="params">(Talker)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">k = Knigget()</span><br><span class="line"><span class="comment"># TypeError: Can't instantiate abstract class Knigget with abstract methods talk</span></span><br><span class="line"><span class="comment"># 对其方法talk进行重写</span></span><br><span class="line"><span class="comment"># 注意此处talk的函数定义也可为pass，只要重写方法即可</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Knigget</span><span class="params">(Talker)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">talk</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Hi!"</span>)</span><br><span class="line">k = Knigget()</span><br><span class="line">k.talk()</span><br><span class="line"><span class="comment"># Hi!</span></span><br><span class="line"><span class="comment"># Herring类实现了talk方法，但是并非Talker对象（此处原书有翻译错误）</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Herring</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">talk</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Blub."</span>)</span><br><span class="line">h = Herring()</span><br><span class="line">print(isinstance(h, Talker))</span><br><span class="line"><span class="comment"># False</span></span><br><span class="line"><span class="comment"># 可将Herring注册为Talker</span></span><br><span class="line">Talker.register(Herring)</span><br><span class="line">print(isinstance(h, Talker))</span><br><span class="line"><span class="comment"># True</span></span><br><span class="line"><span class="comment"># 应注意，这种做法存在缺点：失去了直接从抽象类派生提供的保障</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>重写构造函数</strong></p>
+<ul>
+<li>构造函数：对象创建后自动调用<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Superclass</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Subclass</span><span class="params">(Superclass)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(Subclass, self).__init__()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 协议指的是规范行为的规则，协议指定应实现哪些方法以及这些方法应做什么</span></span><br><span class="line"><span class="comment"># python中，多态仅基于对象的行为而非祖先</span></span><br><span class="line"><span class="comment"># 注意此处：在构造函数中，super传入了参数*args；在方法重写中，返回的是继承的函数</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CounterList</span><span class="params">(list)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *args)</span>:</span></span><br><span class="line">        super(CounterList, self).__init__(*args)</span><br><span class="line">        self.count = <span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, index)</span>:</span></span><br><span class="line">        self.count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> super(CounterList, self).__getitem__(index)</span><br><span class="line">cl = CounterList(range(<span class="number">10</span>)) </span><br><span class="line">print(cl)</span><br><span class="line"><span class="comment"># [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span></span><br><span class="line">print(cl.count)</span><br><span class="line"><span class="comment"># 0</span></span><br><span class="line">print(cl[<span class="number">1</span>] + cl[<span class="number">6</span>])</span><br><span class="line"><span class="comment"># 7</span></span><br><span class="line">print(cl.count)</span><br><span class="line"><span class="comment"># 2</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>特性</strong></p>
+<ul>
+<li>通过存取方法定义的属性称为特性<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set_size()和get_size()是“虚拟属性”size的存取方法</span></span><br><span class="line"><span class="comment"># 如果要隐藏存取方法，让所有属性看起来都一样，可使用property</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.width = <span class="number">0</span></span><br><span class="line">        self.height = <span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_size</span><span class="params">(self, size)</span>:</span></span><br><span class="line">        self.width, self.height = size</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_size</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.width, self.height</span><br><span class="line">r = Rectangle()</span><br><span class="line">r.set_size((<span class="number">10</span>, <span class="number">5</span>))</span><br><span class="line">print(r.width)</span><br><span class="line"><span class="comment"># 10</span></span><br><span class="line">print(r.get_size())</span><br><span class="line"><span class="comment"># (10, 5)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">property(fget, fset, fdel, doc)</span><br><span class="line"><span class="comment"># 用以创建特性，参数分别为获取方法，设置方法，删除方法，文档字符串</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.width = <span class="number">0</span></span><br><span class="line">        self.height = <span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_size</span><span class="params">(self, size)</span>:</span></span><br><span class="line">        self.width, self.height = size</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_size</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.width, self.height</span><br><span class="line">    size = property(fget=get_size, fset=set_size)</span><br><span class="line">r = Rectangle()</span><br><span class="line">r.size = (<span class="number">10</span>, <span class="number">5</span>)</span><br><span class="line">print(r.width)</span><br><span class="line"><span class="comment"># 10</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>静态方法、类方法</strong></p>
+<ul>
+<li>静态方法定义中没有参数self，可直接通过类来调用</li>
+<li>类方法的定义包含类似于self的参数cls，可通过对象来调用，但参数cls自动关联到类<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Myclass</span>:</span></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">smeth</span><span class="params">()</span>:</span></span><br><span class="line">        print(<span class="string">"This is a static method."</span>)</span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cmeth</span><span class="params">(cls)</span>:</span></span><br><span class="line">        print(<span class="string">"This is a class method of"</span>, cls)</span><br><span class="line">Myclass.smeth()</span><br><span class="line"><span class="comment"># This is a static method.</span></span><br><span class="line">Myclass.cmeth()</span><br><span class="line"><span class="comment"># This is a class method of &lt;class '__main__.Myclass'&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>魔法方法</strong></p>
+<ul>
+<li>此处仅作记录，具体原理暂时不深究(具体见150, 156页)<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">__len__(self)    <span class="comment"># 集合包含的项数</span></span><br><span class="line">__getitem__(self, key)    <span class="comment"># 返回与指定键关联的值</span></span><br><span class="line">__setitem__(self, key, value)    <span class="comment"># 以与键关联的方式储存值</span></span><br><span class="line">__delitem__(self, key)    <span class="comment"># 删除与key相关联的值</span></span><br><span class="line"><span class="comment">####################</span></span><br><span class="line"><span class="comment"># 可以拦截对对象属性的所有访问企图</span></span><br><span class="line">__getattribute__(self, name)    <span class="comment"># 在属性被访问时自动调用</span></span><br><span class="line">__getattr__(self, name)    <span class="comment"># 在属性被访问而对象没有这样的属性时自动调用</span></span><br><span class="line">__setattr__(self, name, value)    <span class="comment"># 试图给属性赋值时自动调用，需避开无限循环</span></span><br><span class="line">__delattr__(self, name)    <span class="comment"># 试图删除属性时自动调用</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>XinYS</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2020/04/02/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E7%B1%BB/">http://yoursite.com/2020/04/02/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E7%B1%BB/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/python/"># python</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/04/02/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%BC%82%E5%B8%B8/">第八章 异常</a>
+            
+            
+            <a class="next" rel="next" href="/2020/04/02/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%8A%BD%E8%B1%A1/">第六章 抽象</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© XinYS | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

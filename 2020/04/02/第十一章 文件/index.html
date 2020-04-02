@@ -12,7 +12,7 @@
 
 
 
-<title>Hello World | XinYS&#39;s Blog</title>
+<title>第十一章 文件 | XinYS&#39;s Blog</title>
 
 
 
@@ -173,7 +173,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Hello World</h1>
+            <h1 class="post-title">第十一章 文件</h1>
             
                 <div class="post-meta">
                     
@@ -182,29 +182,83 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">April 1, 2020&nbsp;&nbsp;22:38:52</a>
+                        Date: <a href="#">April 2, 2020&nbsp;&nbsp;23:24:14</a>
                         </span>
                     
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/python/">python</a>
+                            
+                        </span>
                     
                 </div>
             
         </header>
 
         <div class="post-content">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <h2 id="第十一章-文件"><a href="#第十一章-文件" class="headerlink" title="第十一章 文件"></a>第十一章 文件</h2><h3 id="11-1-打开文件"><a href="#11-1-打开文件" class="headerlink" title="11.1 打开文件"></a>11.1 打开文件</h3><p><strong>函数open的mode参数</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">r</td>
+<td align="center">读取模式，默认</td>
+</tr>
+<tr>
+<td align="center">w</td>
+<td align="center">写入模式，写入文件并在文件不存在时创建，写入方式为截断，原有内容删除，并在文件开头处开始写入</td>
+</tr>
+<tr>
+<td align="center">a</td>
+<td align="center">附加模式，在既有文件末尾继续写入</td>
+</tr>
+<tr>
+<td align="center">x</td>
+<td align="center">独占写入模式，在文件已存在时引发FileExistsError异常</td>
+</tr>
+<tr>
+<td align="center">t</td>
+<td align="center">文本模式，默认（与其他模式结合使用）</td>
+</tr>
+<tr>
+<td align="center">b</td>
+<td align="center">二进制模式，处理包含非文本的二进制数据的文件（与其他模式结合使用）</td>
+</tr>
+<tr>
+<td align="center">+</td>
+<td align="center">读写模式（与其他模式结合使用）</td>
+</tr>
+<tr>
+<td align="center"><strong>默认模式rt</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- 将文件视为经过编码的Unicode文本，因此将自动执行解码和编码，且默认使用UTF-8编码</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- 可使用关键字参数encoding和errors来指定其他编码和Unicode错误处理策略</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- <strong>自动转换换行字符</strong>，读取时，自动替换其他行尾字符(‘\r’、’\n’、’\r\n’)为’\n’；写入时，将’\n’替换为系统的默认行尾字符(os.linesep)</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p><strong>通用换行模式</strong></p>
+<ul>
+<li>在此模式下，readlines等方法能识别所有合法的换行符</li>
+<li>若要使用这种模式同时禁止自动转换，可将关键字newline设置为空字符串，如open(name, newline=’’)</li>
+<li>若要指定只将’\r’或’\r\n’视为合法行尾字符，可将参数newline设置为相应的行尾字符，这样读取时不会对行尾字符转换；写入时把’\n’替换为指定的行尾字符</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'test.txt'</span>, <span class="string">'w'</span>)</span><br><span class="line">f.write(<span class="string">'Hello,\r'</span>)</span><br><span class="line">f.write(<span class="string">'World!'</span>)</span><br><span class="line">f.close()</span><br><span class="line"><span class="comment"># Hello,</span></span><br><span class="line"><span class="comment"># World!</span></span><br><span class="line">f = open(<span class="string">'test.txt'</span>, newline=<span class="string">'\r'</span>)</span><br><span class="line">print(f.readline())</span><br><span class="line">f.close()</span><br><span class="line"><span class="comment"># Hello,</span></span><br><span class="line">f = open(<span class="string">'test.txt'</span>, newline=<span class="string">'\r\n'</span>)</span><br><span class="line">print(f.readline())</span><br><span class="line">f.close()</span><br><span class="line"><span class="comment"># World!</span></span><br></pre></td></tr></table></figure>
+<hr>
 
         </div>
 
@@ -219,7 +273,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://yoursite.com/2020/04/01/hello-world/">http://yoursite.com/2020/04/01/hello-world/</a></span>
+                        <span><a href="http://yoursite.com/2020/04/02/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E6%96%87%E4%BB%B6/">http://yoursite.com/2020/04/02/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E6%96%87%E4%BB%B6/</a></span>
                     </p>
                 
                 
@@ -242,6 +296,10 @@
                 <span>Tag(s):</span>
                 <span class="tag">
                     
+                    
+                        <a href="/tags/python/"># python</a>
+                    
+                        
                 </span>
             </div>
             <div>
@@ -252,8 +310,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/04/02/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">第一章 基础知识</a>
             
+            <a class="next" rel="next" href="/2020/04/02/%E7%AC%AC%E5%8D%81%E7%AB%A0%20%E6%A8%A1%E5%9D%97/">第十章 模块</a>
             
         </section>
 

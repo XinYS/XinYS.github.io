@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="XinYS">
+
+
+
+
+
+<title>第一章 基础知识 | XinYS&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">XinYS&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">XinYS&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">第一章 基础知识</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">XinYS</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 2, 2020&nbsp;&nbsp;23:19:51</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/python/">python</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="Python-Learn"><a href="#Python-Learn" class="headerlink" title="Python Learn"></a>Python Learn</h1><ul>
+<li>作为学习&lt;python基础教程&gt;的笔记，记录值得记录的知识</li>
+<li>以提高阅读代码能力为最终目的</li>
+<li>笔记结构与原书有不同</li>
+</ul>
+<hr>
+<h2 id="第一章-基础知识"><a href="#第一章-基础知识" class="headerlink" title="第一章 基础知识"></a>第一章 基础知识</h2><p>###1.3 数和表达式<br><strong>整除运算 : //</strong><br>结果向下圆整</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> // <span class="number">3</span></span><br><span class="line"><span class="comment"># 3(3.3)</span></span><br><span class="line"><span class="number">10</span> // <span class="number">-3</span></span><br><span class="line"><span class="comment"># -4(-3.3)</span></span><br><span class="line"><span class="number">-10</span> // <span class="number">3</span></span><br><span class="line"><span class="comment"># -4(-3.3)</span></span><br><span class="line"><span class="number">-10</span> // <span class="number">-3</span></span><br><span class="line"><span class="comment"># 3(3.3)</span></span><br></pre></td></tr></table></figure>
+<p><strong>求模运算 : %</strong><br>x % y 等价于 x - ((x // y) * y)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> % <span class="number">3</span></span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line"><span class="number">10</span> % <span class="number">-3</span></span><br><span class="line"><span class="comment"># -2(10 - 12)</span></span><br><span class="line"><span class="number">-10</span> % <span class="number">3</span></span><br><span class="line"><span class="comment"># 2(-10 - (-12))</span></span><br><span class="line"><span class="number">-10</span> % <span class="number">-3</span></span><br><span class="line"><span class="comment"># -1(-10 - (-9))</span></span><br></pre></td></tr></table></figure>
+<p><strong>进制</strong></p>
+<ul>
+<li>二进制 0b</li>
+<li>八进制 0o</li>
+<li>十六进制 0x<h3 id="1-7-函数"><a href="#1-7-函数" class="headerlink" title="1.7 函数"></a>1.7 函数</h3></li>
+</ul>
+<p><strong>round()</strong><br>圆整到最接近的整数，当一样接近时圆整到偶数</p>
+<h3 id="1-8-模块"><a href="#1-8-模块" class="headerlink" title="1.8 模块"></a>1.8 模块</h3><p><strong>使用变量来引用函数</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line">foo = math.sqrt</span><br><span class="line">foo(<span class="number">9</span>)</span><br><span class="line"><span class="comment"># 3.0</span></span><br></pre></td></tr></table></figure>
+<p><strong>虚数</strong><br>cmath用以处理虚数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cmath</span><br><span class="line">cmath.sqrt(<span class="number">-1</span>)</span><br><span class="line"><span class="comment"># 1j</span></span><br><span class="line"><span class="comment"># 复数算数运算定义：-1的平方根为1j</span></span><br><span class="line"><span class="comment"># python没有专门表示虚数的类型，而将虚数视为实部为0的复数</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-9-保存并执行程序"><a href="#1-9-保存并执行程序" class="headerlink" title="1.9 保存并执行程序"></a>1.9 保存并执行程序</h3><p>在UNIX中，若想无需显式使用python解释器而直接运行python脚本：<br>脚本第一行以#！开始，并在其后指定用于对脚本进行解释的程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br></pre></td></tr></table></figure>
+<p>还需将python脚本变为可执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ chomd a+x helloworld.py</span><br><span class="line">$ helloworld.py</span><br></pre></td></tr></table></figure>
+<h3 id="1-10-字符串"><a href="#1-10-字符串" class="headerlink" title="1.10 字符串"></a>1.10 字符串</h3><p><strong>字符串表示str和repr</strong><br>值到字符串的转换有两种不同的机制</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"Hello,\nworld!"</span></span><br><span class="line"><span class="comment"># 'Hello,\nworld!'</span></span><br><span class="line">print(<span class="string">"Hello,\nworld!"</span>)</span><br><span class="line"><span class="comment"># Hello,</span></span><br><span class="line"><span class="comment"># world!</span></span><br></pre></td></tr></table></figure>
+<p>repr和str分别对应以上两种机制</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获得值的合法python表达式表示</span></span><br><span class="line">print(repr(<span class="string">"Hello,\nworld!"</span>))</span><br><span class="line"><span class="comment"># 'Hello,\nworld!'</span></span><br><span class="line"><span class="comment"># 尽可能将特殊字符编码转换为相应的字符串</span></span><br><span class="line">print(str(<span class="string">"Hello,\nworld!"</span>))</span><br><span class="line"><span class="comment"># Hello,</span></span><br><span class="line"><span class="comment"># world!</span></span><br></pre></td></tr></table></figure>
+<p><strong>长字符串</strong><br>使用三引号(‘’’或”””)来表示横跨多行的字符串<br>字符串可包含单引号双引号而无需转义</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"""It is a long string. It continues here.</span></span><br><span class="line"><span class="string">And it's not over yet.</span></span><br><span class="line"><span class="string">Still here.</span></span><br><span class="line"><span class="string">"""</span>)</span><br></pre></td></tr></table></figure>
+<p>\可表示跨行<br><strong>原始字符串</strong><br>常规字符串在处理例如路径C:\nowhere时会出现问题</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'C:\nowhere'</span>)</span><br><span class="line"><span class="comment"># C:</span></span><br><span class="line"><span class="comment"># owhere</span></span><br><span class="line">print(<span class="string">r'C:\nowhere'</span>)</span><br><span class="line"><span class="comment"># C:\nowhere</span></span><br></pre></td></tr></table></figure>
+<p>应注意引号需像通常那样进行转义，且原始字符串的最后一个字符不能是反斜杠</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">r'Let\'s go!'</span>)</span><br><span class="line"><span class="comment"># Let\'s go!</span></span><br><span class="line">print(<span class="string">r'C:\Program Files\tool\)</span></span><br><span class="line"><span class="string"># SyntaxError: EOL while scanning string literal</span></span><br><span class="line"><span class="string"># 一种处理方式：将结尾的反斜杠单独作为一个字符串</span></span><br><span class="line"><span class="string">print(r'</span>C:\Program Files\tool<span class="string">' '</span>\\<span class="string">')</span></span><br><span class="line"><span class="string"># C:\Program Files\tool\</span></span><br></pre></td></tr></table></figure>
+<p><strong>Unicode</strong></p>
+<ul>
+<li>Python字符串使用Unicode编码来表示文本，每个Unicode字符都用一个码点表示，即Unicode标准为每个字符指定的数字。</li>
+<li>在内存和磁盘中，所有对象都是由二进制数字编码表示的，八个为一组，即1字节。</li>
+<li>为与C语言进行相互操作等原因，python提供两种类型，不可变的bytes和可变的bytearray。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">b'Hello, world!'</span></span><br><span class="line"><span class="comment"># b'Hello, world!'</span></span><br></pre></td></tr></table></figure></li>
+<li>ASCII字符是用对应的数及其二进制编码定义的，Unicode码点是用整数定义的。</li>
+<li>UTF-8使用了变长编码，进行单字节编码时，使用ASCII以与较旧系统兼容；对于不在此范围内字符，使用多个字符（最多6个）进行编码。</li>
+<li>python默认使用UTF-8编码<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Hello, world!"</span>.encode(<span class="string">"ASCII"</span>))</span><br><span class="line"><span class="comment"># b'Hello, world!'</span></span><br><span class="line">print(<span class="string">"Hello, world!"</span>.encode(<span class="string">"UTF-8"</span>))</span><br><span class="line"><span class="comment"># b'Hello, world!'</span></span><br><span class="line">print(<span class="string">"Hello, world!"</span>.encode())</span><br><span class="line"><span class="comment"># b'Hello, world!'</span></span><br><span class="line">print(<span class="string">"Hello, world!"</span>.encode(<span class="string">"UTF-32"</span>))</span><br><span class="line"><span class="comment"># b'\xff\xfe\x00\x00H\x00\x00\x00e\x00\x00\x00l\x00\x00\x00l\x00\x00\x00o\x00\x00\x00,\x00\x00\x00 \x00\x00\x00w\x00\x00\x00o\x00\x00\x00r\x00\x00\x00l\x00\x00\x00d\x00\x00\x00!\x00\x00\x00'</span></span><br><span class="line">print(<span class="string">b'\xff\xfe\x00\x00H\x00\x00\x00e\x00\x00\x00l\x00\x00\x00l\x00\x00\x00o\x00\x00\x00,\x00\x00\x00 \x00\x00\x00w\x00\x00\x00o\x00\x00\x00r\x00\x00\x00l\x00\x00\x00d\x00\x00\x00!\x00\x00\x00'</span>.decode(<span class="string">'UTF-32'</span>))</span><br><span class="line"><span class="comment"># Hello, world!</span></span><br></pre></td></tr></table></figure></li>
+<li>可直接创建bytes和str对象<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bytes(<span class="string">"Hællå, wørld!"</span>, encoding=<span class="string">"utf-8"</span>)</span><br><span class="line"><span class="comment"># b'H\xc3\xa6ll\xc3\xa5, w\xc3\xb8rld!'</span></span><br><span class="line">str(<span class="string">b'H\xc3\xa6ll\xc3\xa5, w\xc3\xb8rld!'</span>, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="comment"># 'Hællå, wørld!'</span></span><br></pre></td></tr></table></figure>
+<img src="https://github.com/xinys/storage/blob/master/1539768-20181212215842151-165996936.png?raw=true" alt="bytes-str"></li>
+</ul>
+<hr>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>XinYS</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2020/04/02/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">http://yoursite.com/2020/04/02/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/python/"># python</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/04/02/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%88%97%E8%A1%A8%E5%92%8C%E5%85%83%E7%BB%84/">第二章 列表和元组</a>
+            
+            
+            <a class="next" rel="next" href="/2020/04/01/hello-world/">Hello World</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© XinYS | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

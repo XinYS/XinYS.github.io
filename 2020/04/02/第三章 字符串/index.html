@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="XinYS">
+
+
+
+
+
+<title>第三章 字符串 | XinYS&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">XinYS&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">XinYS&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">第三章 字符串</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">XinYS</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 2, 2020&nbsp;&nbsp;23:20:23</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/python/">python</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="第三章-字符串"><a href="#第三章-字符串" class="headerlink" title="第三章 字符串"></a>第三章 字符串</h2><h3 id="3-2-字符串格式设置-精简版"><a href="#3-2-字符串格式设置-精简版" class="headerlink" title="3.2 字符串格式设置 精简版"></a>3.2 字符串格式设置 精简版</h3><p><strong>仅作了解的两种方法</strong></p>
+<ul>
+<li>字符串格式设置运算符 %</li>
+<li>%左边指定格式字符串，右边指定要设置其格式的值（可为单个值、元组或字典<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">format % values</span><br></pre></td></tr></table></figure></li>
+<li>模板字符串<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> string <span class="keyword">import</span> Template</span><br><span class="line">tmp = Template(<span class="string">"Hello, $who! $what enough for ya?"</span>)</span><br><span class="line">tmp.substitute(who=<span class="string">"Mars"</span>, what=<span class="string">"Dusty"</span>)</span><br><span class="line"><span class="comment"># Hello, Mars! Dusty enough for ya?</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>字符串方法format</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&#123;&#125;, &#123;&#125; and &#123;&#125;"</span>.format(<span class="string">"first"</span>, <span class="string">"second"</span>, <span class="string">"third"</span>)</span><br><span class="line"><span class="comment"># first, second and third</span></span><br><span class="line"><span class="string">"&#123;3&#125; &#123;0&#125; &#123;2&#125; &#123;1&#125; &#123;3&#125; &#123;0&#125;"</span>.format(<span class="string">"be"</span>, <span class="string">"not"</span>, <span class="string">"or"</span>, <span class="string">"to"</span>)</span><br><span class="line"><span class="comment"># to be or not to be</span></span><br><span class="line"><span class="string">"&#123;name&#125; is approximately &#123;value:.2f&#125;."</span>.format(value=pi, name=<span class="string">"π"</span>)</span><br><span class="line"><span class="comment"># π is approximately 3.14.</span></span><br><span class="line"><span class="comment"># 如果变量与替换字段同名，可以采取以下简写方式</span></span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> e</span><br><span class="line"><span class="string">f"Euler's constant is roughly <span class="subst">&#123;e&#125;</span>."</span></span><br><span class="line"><span class="comment"># Euler's constant is roughly 2.718281828459045.</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-3-字符串格式设置-完整版"><a href="#3-3-字符串格式设置-完整版" class="headerlink" title="3.3 字符串格式设置 完整版"></a>3.3 字符串格式设置 完整版</h3><p><strong>{字段名!转换标志:格式说明符}</strong></p>
+<ul>
+<li>并非只能使用用于替换字段名的参数值本身，还可使用索引以及访问导入模块中的方法<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="string">"The &#123;mod.__name__&#125; defines the value &#123;mod.pi&#125; for π"</span>.format(mod=math)</span><br><span class="line"><span class="comment"># The math defines the value 3.141592653589793 for π</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>若在最终结果中包含花括号，则使用两个花括号来表示</strong><br><strong>转换标志</strong></p>
+<ul>
+<li>若设置了转换标志，将使用指定的函数将对象转换为字符串，再进行进一步的格式设置（默认为s）<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># s:str; r:repr; a:ascii</span></span><br><span class="line"><span class="string">"&#123;pi!s&#125; &#123;pi!r&#125; &#123;pi!a&#125;"</span>.format(pi=<span class="string">"π"</span>)</span><br><span class="line"><span class="comment"># π 'π' '\u03c0'</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>格式说明符</strong></p>
+<ul>
+<li>详细指定最终格式，包括格式类型、字段宽度、数的精度、显示符号、千分位分隔符、对齐和填充方式等</li>
+</ul>
+<p><strong>类型说明符</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">b</td>
+<td align="center">将整数表示为二进制数</td>
+</tr>
+<tr>
+<td align="center">c</td>
+<td align="center">将整数解读为Unicode码点</td>
+</tr>
+<tr>
+<td align="center">d</td>
+<td align="center">将整数视为十进制数进行处理，这是<u>整数默认使用的说明符</u></td>
+</tr>
+<tr>
+<td align="center">e</td>
+<td align="center">使用科学表示法来表示小数（用e来表示指数）</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center">与e相同，但使用E来表示指数</td>
+</tr>
+<tr>
+<td align="center">f</td>
+<td align="center">将小数表示为定点数</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">与f相同，但对于特殊值（nan和inf），使用大写表示</td>
+</tr>
+<tr>
+<td align="center">g</td>
+<td align="center">自动在定点表示法和科学表示法之间做出选择。这是<u>默认用于小数的说明符</u>，但在默认情况下至少有一位小数</td>
+</tr>
+<tr>
+<td align="center">G</td>
+<td align="center">与g相同，但使用大写来表示指数和特殊值</td>
+</tr>
+<tr>
+<td align="center">n</td>
+<td align="center">与g相同，但插入随区域而异的数字分隔符</td>
+</tr>
+<tr>
+<td align="center">o</td>
+<td align="center">将整数表示为八进制数</td>
+</tr>
+<tr>
+<td align="center">s</td>
+<td align="center">保持字符串的格式不变，这是<u>默认用于字符串的说明符</u></td>
+</tr>
+<tr>
+<td align="center">x</td>
+<td align="center">将整数表示为十六进制数并使用小写字母</td>
+</tr>
+<tr>
+<td align="center">X</td>
+<td align="center">与x相同，但使用大写字母</td>
+</tr>
+<tr>
+<td align="center">%</td>
+<td align="center">将数表示为百分比值（乘以100，按说明符f设置格式，再在后面加上%）</td>
+</tr>
+<tr>
+<td align="center"><strong>宽度、精度、千位分隔符</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- 宽度,(千位分隔符).精度</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- 浮点数格式默认显示小数点后六位精度</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&#123;:10,.3f&#125;"</span>.format(<span class="number">10000</span>)</span><br><span class="line"><span class="comment"># 10,000.000</span></span><br></pre></td></tr></table></figure></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong>符号、对齐、0填充</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&#123;0:0^+#15,.3g&#125;\n&#123;0:*= 15&#125;\n&#123;1:$^+15,.2f&#125;"</span>.format(<span class="number">3.14</span>, <span class="number">-3.14</span>)</span><br><span class="line"><span class="comment"># 00000+3.1400000</span></span><br><span class="line"><span class="comment">#  **********3.14</span></span><br><span class="line"><span class="comment"># $$$$$-3.14$$$$$</span></span><br></pre></td></tr></table></figure></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- 现对以上表达式进行说明</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- 字符串和数的默认对齐方式不同，当指定一定宽度时，数字为右对齐，字符串为左对齐，为统一格式，</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- 使用<u>对齐说明符</u>：&lt;左对齐、&gt;右对齐、^居中、=字符左对齐，数字右对齐；</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- 在对齐方式前面可添加<u>填充标志</u>，可为零、加减号、空格、星号等；</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">（例如0^为居中0填充，<em>=为符号左对齐、数字右对齐、中间使用\</em>填充）</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- 使用<u>符号说明符</u>为正数指定符号，-为默认，无符号、+为正号、空格为添加空格；</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- <u>#选项</u>放在符号说明符和宽度之间，触发另一种转换方式，转换细节随类型而异，例如对二进制八进制等加上0b、0o前缀，对十进制数要求包含小数点，对于类型g保留小数后的零；</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打印价格列表</span></span><br><span class="line">width = int(input(<span class="string">"Please enter a width: "</span>))</span><br><span class="line">price_width = <span class="number">10</span></span><br><span class="line">item_width = width - price_width</span><br><span class="line">fruits = [<span class="string">'Apples'</span>, <span class="string">'Pears'</span>, <span class="string">'Cantaloupes'</span>, <span class="string">'Dried Apricots (16 oz.)'</span>,\</span><br><span class="line">    <span class="string">'Prunes(4 lbs.)'</span>]</span><br><span class="line">prices = [<span class="number">0.4</span>, <span class="number">0.5</span>, <span class="number">1.92</span>, <span class="number">8</span>, <span class="number">12</span>]</span><br><span class="line">fruits_prices = list(zip(fruits, prices))</span><br><span class="line"><span class="comment"># 注意这里使用&#123;&#123;表示&#123;, &#125;&#125;表示&#125;</span></span><br><span class="line"><span class="comment"># 字段宽度是由用户提供，无法以硬编码方式指定</span></span><br><span class="line">fmt = <span class="string">"&#123;&#123;:&#123;&#125;&#125;&#125;&#123;&#123;:&#123;&#125;.2f&#125;&#125;"</span>.format(item_width, price_width)</span><br><span class="line">print(fmt)</span><br><span class="line"><span class="comment">#&#123;:item_width&#125;&#123;:price_width.2f&#125;</span></span><br><span class="line">print(<span class="string">'='</span>*width)</span><br><span class="line">print(<span class="string">"Item"</span> + <span class="string">' '</span> * (width - <span class="number">9</span>) + <span class="string">"Price"</span>)</span><br><span class="line">print(<span class="string">'-'</span>*width)</span><br><span class="line"><span class="keyword">for</span> (fruit, price) <span class="keyword">in</span> fruits_prices:</span><br><span class="line">    print(fmt.format(fruit, price))</span><br><span class="line">print(<span class="string">"="</span>*width)</span><br><span class="line"><span class="comment"># Please enter a width: 35</span></span><br><span class="line"><span class="comment"># &#123;:25&#125;&#123;:10.2f&#125;</span></span><br><span class="line"><span class="comment"># ===================================</span></span><br><span class="line"><span class="comment"># Item                          Price</span></span><br><span class="line"><span class="comment"># -----------------------------------</span></span><br><span class="line"><span class="comment"># Apples                         0.40</span></span><br><span class="line"><span class="comment"># Pears                          0.50</span></span><br><span class="line"><span class="comment"># Cantaloupes                    1.92</span></span><br><span class="line"><span class="comment"># Dried Apricots (16 oz.)        8.00</span></span><br><span class="line"><span class="comment"># Prunes(4 lbs.)                12.00</span></span><br><span class="line"><span class="comment"># ===================================</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-4-字符串方法"><a href="#3-4-字符串方法" class="headerlink" title="3.4 字符串方法"></a>3.4 字符串方法</h2><p><strong>center/ljust/rjust/zfill</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过在两边填充字符（默认空格）来居中字符串</span></span><br><span class="line">string.center(width, fillchar)</span><br><span class="line"><span class="comment"># 返回长度为max(len(string), width)的字符串，开头为当前字符串的副本，其余使用fillchar字符填充（默认空格）</span></span><br><span class="line">string.ljust(width[, fillchar])</span><br><span class="line"><span class="comment"># 末尾为当前字符串副本</span></span><br><span class="line">string.rjust(width[, fillchar])</span><br><span class="line"><span class="comment"># 返回将正负号移到开头，其余部分置于末尾，中间填充0的字符串（类似于format中对齐说明符的=）</span></span><br><span class="line">string.zfill(width)</span><br><span class="line">a = <span class="string">'+3.14'</span>.zfill(<span class="number">10</span>)</span><br><span class="line"><span class="comment"># +000003.14</span></span><br><span class="line">a = <span class="string">'&#123;:0=+10&#125;'</span>.format(<span class="number">3.14</span>)</span><br><span class="line"><span class="comment"># +000003.14</span></span><br></pre></td></tr></table></figure>
+<p><strong>find/rfind/index/rindex/count/startswith/endswith</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 返回找到的第一个子串的索引，若找到，返回第一个字符的索引，否则返回-1；可指定[start, end)范围</span></span><br><span class="line">string.find(sub[, start[, end]])</span><br><span class="line"><span class="comment"># 返回找到的最后一个子串的索引</span></span><br><span class="line">string.rfind(sub[, start[, end]])</span><br><span class="line"><span class="comment">################################</span></span><br><span class="line"><span class="comment"># index方法与find方法不同点在于，找不到指定子串时，引发ValueError异常</span></span><br><span class="line">string.index(sub[, start[, end]])</span><br><span class="line">string.rindex(sub[, start[, end]])</span><br><span class="line"><span class="comment">#################################</span></span><br><span class="line"><span class="comment"># 计算子串出现的次数</span></span><br><span class="line">string.count(sub[, start[, end]])</span><br><span class="line"><span class="comment">#################################</span></span><br><span class="line"><span class="comment"># 检查字符串是否以prefix开头</span></span><br><span class="line">string.startswith(prefix[, start[, end]])</span><br><span class="line"><span class="comment"># 检查字符串是否以suffix结尾</span></span><br><span class="line">string.endswith(suffix[, start[, end]])</span><br></pre></td></tr></table></figure>
+<p><strong>join</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将当前字符串拼接到列表每个元素之间，返回拼接之后的字符串</span></span><br><span class="line">seq = [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>, <span class="string">'5'</span>]</span><br><span class="line">sep = <span class="string">'+'</span></span><br><span class="line">exp = sep.join(seq)</span><br><span class="line">print(exp)</span><br><span class="line"><span class="comment"># 1+2+3+4+5</span></span><br><span class="line"><span class="comment"># 注意，所合并列表的元素必须都为字符串</span></span><br><span class="line">seq = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">exp = sep.join(seq)</span><br><span class="line">print(exp)</span><br><span class="line"><span class="comment"># TypeError: sequence item 0: expected str instance, int found</span></span><br><span class="line">dirs = <span class="string">''</span>, <span class="string">'usr'</span>, <span class="string">'bin'</span>, <span class="string">'env'</span></span><br><span class="line">print(<span class="string">'/'</span>.join(dirs))</span><br><span class="line"><span class="comment"># /usr/bin/env</span></span><br></pre></td></tr></table></figure>
+<p><strong>split/rsplit/partition/rpartition/spiltlines</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将字符串拆分为序列，若无指定，默认在单个或多个连续的空白字符处进行拆分；</span></span><br><span class="line"><span class="comment"># 可指定最大划分次数</span></span><br><span class="line">string.split([sep[, maxsplit]])</span><br><span class="line">exp = <span class="string">'++1+2+3+4+5'</span></span><br><span class="line">sep = <span class="string">'+'</span></span><br><span class="line">seq = exp.split(sep)</span><br><span class="line">print(seq)</span><br><span class="line"><span class="comment"># ['', '', '1', '2', '3', '4', '5']</span></span><br><span class="line">exp = <span class="string">'1\n\t2\t3 4'</span></span><br><span class="line">seq = exp.split()</span><br><span class="line">print(seq)</span><br><span class="line"><span class="comment"># ['1', '2', '3', '4']</span></span><br><span class="line"><span class="comment"># rsplit方法从右往左计算划分次数</span></span><br><span class="line">exp = <span class="string">'1+2+3+4+5'</span></span><br><span class="line">sep = <span class="string">'+'</span></span><br><span class="line">seq = exp.rsplit(sep, <span class="number">3</span>)</span><br><span class="line">print(seq)</span><br><span class="line"><span class="comment"># ['1+2', '3', '4', '5']</span></span><br><span class="line"><span class="comment">##############################</span></span><br><span class="line"><span class="comment"># 在当前字符串搜索sep，并返回元组</span></span><br><span class="line">(before_sep, sep, after_sep) = string.partition(sep)</span><br><span class="line">x = <span class="string">'how are you'</span></span><br><span class="line">print(x.partition(<span class="string">'are'</span>))</span><br><span class="line"><span class="comment"># ('how ', 'are', ' you')</span></span><br><span class="line"><span class="comment"># 从右往左搜索</span></span><br><span class="line">string.rpartition(sep)</span><br><span class="line"><span class="comment">###############################</span></span><br><span class="line"><span class="comment"># 返回包含当前字符串所有行的列表，keepends参数为True，则保留换行符</span></span><br><span class="line">exp = <span class="string">'hello\nworld!'</span></span><br><span class="line">seq = exp.splitlines()</span><br><span class="line">print(seq)</span><br><span class="line"><span class="comment"># ['hello', 'world!']</span></span><br></pre></td></tr></table></figure>
+<p><strong>replace/expandtabs</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将字符串中的子串old替换为new，并返回结果，可指定最大替换次数</span></span><br><span class="line">string.replace(old, new[, max])</span><br><span class="line"><span class="comment">###############################</span></span><br><span class="line"><span class="comment"># 把字符串中的 tab 符号('\t')展开为空格，tabsize参数默认为8</span></span><br><span class="line">string.expandtabs([tabsize=<span class="number">8</span>])</span><br></pre></td></tr></table></figure>
+<p><strong>注：制表符</strong></p>
+<ul>
+<li>python将制表符解释为移到下一个制表位，相邻制表位相距8个空格<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'1234\ttest'</span>)</span><br><span class="line">print(<span class="string">'12345678\ttest'</span>)</span><br><span class="line">print(<span class="string">'123456789\ttest'</span>)</span><br><span class="line"><span class="comment"># 1234    test</span></span><br><span class="line"><span class="comment"># 12345678        test</span></span><br><span class="line"><span class="comment"># 123456789       test</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>translate/maketrans</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 根据转换表table（使用maketrans创建）对字符串中所有字符进行转换并返回结果，</span></span><br><span class="line"><span class="comment"># 与replace不同，translate方法只能进行单字符转换</span></span><br><span class="line">string.translate(table)</span><br><span class="line"><span class="comment"># 创建转换表：对类型str调用方法maketrans，其接受两个长度相同的字符串，</span></span><br><span class="line"><span class="comment"># 将第一个字符串中的字符转换为第二个字符串中的相应字符，</span></span><br><span class="line"><span class="comment"># 可以指定第三个参数表示删除的字符</span></span><br><span class="line">table = str.maketrans(<span class="string">'cs'</span>, <span class="string">'kz'</span>)</span><br><span class="line">a = <span class="string">'This is an incredible test'</span>.translate(table)</span><br><span class="line">print(a)</span><br><span class="line"><span class="comment"># Thiz iz an inkredible tezt</span></span><br><span class="line">table2 = str.maketrans(<span class="string">''</span>, <span class="string">''</span>, <span class="string">' '</span>)</span><br><span class="line">b = a.translate(table2)</span><br><span class="line">print(b)</span><br><span class="line"><span class="comment"># Thizizaninkredibletezt</span></span><br></pre></td></tr></table></figure>
+<p><strong>lower/title/capwords/capitalize/casefold/swapcase</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 返回字符串的小写副本</span></span><br><span class="line">string.lower()</span><br><span class="line"><span class="comment"># 返回字符串的大写副本</span></span><br><span class="line">string.upper()</span><br><span class="line"><span class="comment"># 词首大写，其他字母小写</span></span><br><span class="line">print(<span class="string">"that's all, folks"</span>.title())</span><br><span class="line"><span class="comment"># That'S All, Folks</span></span><br><span class="line"><span class="comment"># string模块中的capwords，同title，确定单词边界的方式不同</span></span><br><span class="line"><span class="comment"># 使用spilt根据sep拆分s，将每项首字母大写，再以空格为分隔符将它们合并起来</span></span><br><span class="line"><span class="comment"># 注意此处的string为string模块！其余未注明部分的string表示的是string类型的对象</span></span><br><span class="line">string.capwords(s[, sep])</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line">print(string.capwords(<span class="string">"that's all, folks"</span>))</span><br><span class="line"><span class="comment"># That's All, Folks</span></span><br><span class="line"><span class="comment"># capitalize返回首字母大写的字符串</span></span><br><span class="line">string.capitalize()</span><br><span class="line"><span class="comment"># casefold返回标准化的字符串，类似于转换为小写，但更适合对Unicode字符串进行不区分大小写的比较</span></span><br><span class="line">string.casefold()</span><br><span class="line"><span class="comment"># swapcase返回大小写反转后的副本</span></span><br><span class="line">string.swapcase()</span><br></pre></td></tr></table></figure>
+<p><strong>strip/lstrip/rstrip</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 返回当前字符串删除开头和末尾的指定字符串中的字符（默认为空白符，如空格、制表符、换行符等）</span></span><br><span class="line">string.strip([chars])</span><br><span class="line">print(<span class="string">"*** SPAM * for * everyone!!! ***"</span>.strip(<span class="string">' *!'</span>))</span><br><span class="line"><span class="comment"># SPAM * for * everyone</span></span><br><span class="line">string.lstrip([chars])</span><br><span class="line">string.rstrip([chars])</span><br></pre></td></tr></table></figure>
+<p><strong>判断字符串是否满足特定条件</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">string.isalnum()  <span class="comment"># 是否都为字母或数字</span></span><br><span class="line">string.isalpha()  <span class="comment"># 是否都是字母</span></span><br><span class="line"><span class="comment">#################</span></span><br><span class="line"><span class="comment"># 以下三种方法存在细微区别，此处不探究</span></span><br><span class="line">string.isdecimal()  <span class="comment"># 是否都为十进制数</span></span><br><span class="line">string.isnumeric()  <span class="comment"># 是否都是数字字符</span></span><br><span class="line">string.isdigit()    <span class="comment"># 是否都是数字</span></span><br><span class="line"><span class="comment">##################</span></span><br><span class="line">string.isidentifier() <span class="comment"># 是否可做为python标识符</span></span><br><span class="line">string.islower()  <span class="comment"># 字母都为小写</span></span><br><span class="line">string.isupper()  <span class="comment"># 字母都为大写</span></span><br><span class="line">string.istitle()  <span class="comment"># 是否满足title</span></span><br><span class="line">string.isspace()  <span class="comment"># 是否都是空白字符</span></span><br><span class="line">string.isprintable()  <span class="comment"># 字符是否都可打印</span></span><br></pre></td></tr></table></figure>
+<hr>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>XinYS</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2020/04/02/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">http://yoursite.com/2020/04/02/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/python/"># python</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/04/02/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%AD%97%E5%85%B8/">第四章 字典</a>
+            
+            
+            <a class="next" rel="next" href="/2020/04/02/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%88%97%E8%A1%A8%E5%92%8C%E5%85%83%E7%BB%84/">第二章 列表和元组</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© XinYS | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

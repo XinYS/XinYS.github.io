@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="XinYS">
+
+
+
+
+
+<title>第八章 异常 | XinYS&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">XinYS&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">XinYS&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">第八章 异常</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">XinYS</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 2, 2020&nbsp;&nbsp;23:23:19</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/python/">python</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="第八章-异常"><a href="#第八章-异常" class="headerlink" title="第八章 异常"></a>第八章 异常</h2><ul>
+<li>相比使用if/else语句，检查一个程序是否会出现异常的最好办法就是直接运行它，观察出现的异常情况</li>
+<li>并且异常处理不会导致代码可读性的下降</li>
+</ul>
+<p><strong>异常对象</strong></p>
+<ul>
+<li>python用异常对象表示异常状态，遇到错误时引发异常，异常对象未被处理（被捕获）时，程序终止并显示错误信息(Traceback)</li>
+<li>每个异常对象都是某个类的实例</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">类 名</th>
+<th align="center">描 述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Exception</td>
+<td align="center">几乎所有的异常类都是从它派生而来的</td>
+</tr>
+<tr>
+<td align="center">AttributeError</td>
+<td align="center">引用属性或给它赋值失败时引发</td>
+</tr>
+<tr>
+<td align="center">OSError</td>
+<td align="center">操作系统不能执行指定的任务（如打开文件）时引发，有多个子类</td>
+</tr>
+<tr>
+<td align="center">IndexError</td>
+<td align="center">使用序列中不存在的索引时引发，为LookupError的子类</td>
+</tr>
+<tr>
+<td align="center">KeyError</td>
+<td align="center">使用映射中不存在的键时引发，为LookupError的子类</td>
+</tr>
+<tr>
+<td align="center">NameError</td>
+<td align="center">找不到名称（变量）时引发</td>
+</tr>
+<tr>
+<td align="center">SyntaxError</td>
+<td align="center">代码不正确时引发</td>
+</tr>
+<tr>
+<td align="center">TypeError</td>
+<td align="center">将内置操作或函数用于类型不正确的对象时引发</td>
+</tr>
+<tr>
+<td align="center">ValueError</td>
+<td align="center">将内置操作或函数用于这样的对象时引发：其类型正确但包含的值不合适</td>
+</tr>
+<tr>
+<td align="center">ZeroDivisionError</td>
+<td align="center">在除法或求模运算的第二个参数为零时引发</td>
+</tr>
+</tbody></table>
+<p><strong>raise</strong></p>
+<ul>
+<li>用以引发异常，将一个类（必须为Exception的子类）或实例作为参数</li>
+<li>将类作为参数时，将自动创建一个实例<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">raise</span> Exception</span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File "test.py", line 38, in &lt;module&gt;</span></span><br><span class="line"><span class="comment">#     raise Exception</span></span><br><span class="line"><span class="comment"># Exception</span></span><br><span class="line"><span class="keyword">raise</span> Exception(<span class="string">"Error!"</span>)</span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File "test.py", line 38, in &lt;module&gt;</span></span><br><span class="line"><span class="comment">#     raise Exception("Error!")</span></span><br><span class="line"><span class="comment"># Exception: Error!</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>自定义异常类</strong></p>
+<ul>
+<li>创建异常类必须直接或间接地继承Exception<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeCustomException</span><span class="params">(Exception)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<h3 id="8-3-捕获异常"><a href="#8-3-捕获异常" class="headerlink" title="8.3 捕获异常"></a>8.3 捕获异常</h3></li>
+<li>捕获异常，即对异常进行处理</li>
+<li>try / except语句，处理方式可以是打印自定义的错误语句，也可以重新引发异常（例如下面的raise）</li>
+<li>关于异常的顺序：若未处理在函数中出现的异常，将向上传播到调用函数的地方；仍未得到处理，将继续传播到主程序（全局作用域），若主程序也没有处理异常，则程序终止并显示栈追踪消息<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># faulty引发的异常依次从faulty和ignore_exception向外传播，最终导致显示栈追踪信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">faulty</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">raise</span> Exception(<span class="string">"Something is wrong."</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ignore_exception</span><span class="params">()</span>:</span></span><br><span class="line">    faulty()</span><br><span class="line">ignore_exception()</span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File "test.py", line 9, in &lt;module&gt;</span></span><br><span class="line"><span class="comment">#     ignore_exception()</span></span><br><span class="line"><span class="comment">#   File "test.py", line 8, in ignore_exception</span></span><br><span class="line"><span class="comment">#     faulty()</span></span><br><span class="line"><span class="comment">#   File "test.py", line 6, in faulty</span></span><br><span class="line"><span class="comment">#     raise Exception("Something is wrong.")</span></span><br><span class="line"><span class="comment"># Exception: Something is wrong.</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>不提供参数</strong></p>
+<ul>
+<li>若无法处理异常，选择使用不带参数的raise，将重新引发它（即继续向上传播）</li>
+</ul>
+<p><strong>抑制异常</strong></p>
+<ul>
+<li>抑制异常时，异常情况会隐式地返回None，适用于与用户的交互会话</li>
+<li>将执行对异常进行处理的语句（打印错误消息等），不让异常继续传播（即程序继续正常执行）<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 书中使用这个具有“抑制开关”的类作为例子，个人感觉多余，但为忠实原书，故作保留</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MuffledCalculator</span>:</span></span><br><span class="line">    muffled = <span class="literal">False</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">calc</span><span class="params">(self, expr)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            eval(expr)</span><br><span class="line">        <span class="keyword">except</span> ZeroDivisionError:<span class="comment"># as e:</span></span><br><span class="line">            <span class="comment"># print(e)</span></span><br><span class="line">            <span class="keyword">if</span> self.muffled:</span><br><span class="line">                print(<span class="string">"Division by zero is illegal"</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">raise</span></span><br><span class="line"><span class="comment"># muffled为假时，捕获了异常ZeroDivisionError，但继续向上传播</span></span><br><span class="line">calculator = MuffledCalculator()</span><br><span class="line">calculator.calc(<span class="string">'10 / 0'</span>)</span><br><span class="line">print(<span class="string">"Continue..."</span>)</span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File "test.py", line 18, in &lt;module&gt;</span></span><br><span class="line"><span class="comment">#     calculator.calc('10 / 0')</span></span><br><span class="line"><span class="comment">#   File "test.py", line 7, in calc</span></span><br><span class="line"><span class="comment">#     eval(expr)</span></span><br><span class="line"><span class="comment">#   File "&lt;string&gt;", line 1, in &lt;module&gt;</span></span><br><span class="line"><span class="comment"># ZeroDivisionError: division by zero</span></span><br><span class="line"><span class="comment">################################</span></span><br><span class="line"><span class="comment"># muffled为真时，抑制异常（打印错误信息）</span></span><br><span class="line">calculator = MuffledCalculator()</span><br><span class="line">calculator.muffled = <span class="literal">True</span></span><br><span class="line">calculator.calc(<span class="string">'10 / 0'</span>)</span><br><span class="line">print(<span class="string">"Continue..."</span>)</span><br><span class="line"><span class="comment"># Division by zero is illegal</span></span><br><span class="line"><span class="comment"># Continue...</span></span><br><span class="line"><span class="comment"># 此时程序继续执行</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>异常上下文</strong></p>
+<ul>
+<li>若想引发别的异常，可以将异常作为raise的参数</li>
+<li>此种情况下，<u>进入except子句的异常</u>会作为异常上下文出现在最终的错误消息中</li>
+<li>可以使用raise … from … 来提供上下文，也可以使用None来禁用上下文（此时将显示最终引发的异常）<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意顺序：先引发ValueError，再引发ZeroDivisionError</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="number">1</span> / <span class="number">0</span></span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">    <span class="keyword">raise</span> ValueError</span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File "test.py", line 2, in &lt;module&gt;</span></span><br><span class="line"><span class="comment">#     1 / 0</span></span><br><span class="line"><span class="comment"># ZeroDivisionError: division by zero</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># During handling of the above exception, another exception occurred:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File "test.py", line 4, in &lt;module&gt;</span></span><br><span class="line"><span class="comment">#     raise ValueError</span></span><br><span class="line"><span class="comment"># ValueError</span></span><br><span class="line"><span class="comment"># 禁用上下文</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="number">1</span> / <span class="number">0</span></span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">    <span class="keyword">raise</span> ValueError <span class="keyword">from</span> <span class="literal">None</span></span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File "test.py", line 8, in &lt;module&gt;</span></span><br><span class="line"><span class="comment">#     raise ValueError from None</span></span><br><span class="line"><span class="comment"># ValueError</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>多个异常</strong></p>
+<ul>
+<li>可以使用多个except子句或将多个异常写在一个元组中</li>
+<li>意义：若仅指定某种异常，那么将不会捕获除此类异常之外的异常以进行处理，从而会导致程序终止<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 多个except子句</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    x = int(input(<span class="string">"Enter the first number: "</span>))</span><br><span class="line">    y = int(input(<span class="string">"Enter the second number: "</span>))</span><br><span class="line">    print(x / y)</span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">    print(<span class="string">"The second number can't be zero!"</span>)</span><br><span class="line"><span class="keyword">except</span> TypeError:</span><br><span class="line">    print(<span class="string">"That wasn't a number!"</span>)</span><br><span class="line"><span class="comment"># 多个参数</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    x = int(input(<span class="string">"Enter the first number: "</span>))</span><br><span class="line">    y = int(input(<span class="string">"Enter the second number: "</span>))</span><br><span class="line">    print(x / y)</span><br><span class="line"><span class="keyword">except</span>(NameError, TypeError, ZeroDivisionError):</span><br><span class="line">    print(<span class="string">"Your numbers are bogus."</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>一网打尽</strong></p>
+<ul>
+<li>很难预测到所有可能出现的问题，程序会出错</li>
+<li>这样的意义在于，如果没有预测到这类异常情况的出现，也没有采取相应的措施，那么与其使用并非要捕获这些异常的try/except语句将其隐藏，不如让程序直接崩溃</li>
+<li>如果<u>非要捕获所有异常</u>：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 若要捕获所有异常，只需except语句中不指定任何异常类即可</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    x = int(input(<span class="string">"Enter the first number: "</span>))</span><br><span class="line">    y = int(input(<span class="string">"Enter the second number: "</span>))</span><br><span class="line">    print(x / y)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">"Something wrong happened."</span>)</span><br><span class="line"><span class="comment"># 无论出现任何异常，都会打印这条语句：</span></span><br><span class="line"><span class="comment"># Something wrong happened.</span></span><br><span class="line"><span class="comment"># 作为对此类做法缺点的体现，这样做会捕获例如用户使用ctrl+C或调用函数sys.exit来终止执行的企图等，比较好的做法是：</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    x = int(input(<span class="string">"Enter the first number: "</span>))</span><br><span class="line">    y = int(input(<span class="string">"Enter the second number: "</span>))</span><br><span class="line">    print(x / y)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(e)</span><br><span class="line"><span class="comment"># 这样不会漏掉例如SystemExit和KeyboardInterrupt这类不是派生自Except的类（它们是从Exception的超类BaseException派生来而的）</span></span><br><span class="line"><span class="comment"># Enter the first number: 1</span></span><br><span class="line"><span class="comment"># Enter the second number: 0</span></span><br><span class="line"><span class="comment"># division by zero</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>else / finally</strong></p>
+<ul>
+<li>else 在没有出现异常时执行代码块</li>
+<li>finally 是否引发异常都会执行，常用作清理代码<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 循环直到程序正常运行或者出现并非派生自Exception的异常为止</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        x = int(input(<span class="string">"Enter the first number: "</span>))</span><br><span class="line">        y = int(input(<span class="string">"Enter the second number: "</span>))</span><br><span class="line">        value = x / y</span><br><span class="line">        print(<span class="string">"x / y is"</span>, value)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        print(e)</span><br><span class="line">        print(<span class="string">"Try again."</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        print(<span class="string">"Cleaning up..."</span>) <span class="comment"># 仅作位置说明</span></span><br><span class="line"><span class="comment"># Enter the first number: 1</span></span><br><span class="line"><span class="comment"># Enter the second number: 0</span></span><br><span class="line"><span class="comment"># division by zero</span></span><br><span class="line"><span class="comment"># Try again.</span></span><br><span class="line"><span class="comment"># Cleaning up...</span></span><br><span class="line"><span class="comment"># Enter the first number:</span></span><br><span class="line"><span class="comment"># Cleaning up...</span></span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File "test.py", line 7, in &lt;module&gt;</span></span><br><span class="line"><span class="comment">#     x = int(input("Enter the first number: "))</span></span><br><span class="line"><span class="comment"># KeyboardInterrupt</span></span><br></pre></td></tr></table></figure>
+<h3 id="8-6-警告"><a href="#8-6-警告" class="headerlink" title="8.6 警告"></a>8.6 警告</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> warnings <span class="keyword">import</span> warn</span><br><span class="line">print(<span class="string">"I've got a bad feeling about this."</span>)</span><br><span class="line"><span class="comment"># I've got a bad feeling about this.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> warnings <span class="keyword">import</span> warn</span><br><span class="line"><span class="keyword">from</span> warnings <span class="keyword">import</span> filterwarnings</span><br><span class="line">filterwarnings(<span class="string">"ignore"</span>)</span><br><span class="line">warn(<span class="string">"Something is very wrong!"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">filterwarnings(<span class="string">"error"</span>)</span><br><span class="line">warn(<span class="string">"Something is very wrong!"</span>)</span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File "test.py", line 6, in &lt;module&gt;</span></span><br><span class="line"><span class="comment">#     warn("Something is very wrong!")</span></span><br><span class="line"><span class="comment"># UserWarning: Something is very wrong!</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">warnings.warn(message, category=<span class="literal">None</span>)</span><br><span class="line"><span class="comment"># 发出警告时，可指定将引发的异常，必须为Warning的子类。若将警告转为错误，将使用指定的异常类型</span></span><br><span class="line">filterwarnings(<span class="string">"error"</span>)</span><br><span class="line">warn(<span class="string">"Something is very wrong!"</span>, DeprecationWarning)</span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File "test.py", line 7, in &lt;module&gt;</span></span><br><span class="line"><span class="comment">#     warn("Something is very wrong!", DeprecationWarning)</span></span><br><span class="line"><span class="comment"># DeprecationWarning: Something is very wrong!</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">warnings.filterwarnings(action, category=Warning, ...)</span><br><span class="line"><span class="comment"># 用于过滤（捕获）指定类型的异常，默认为Warning</span></span><br><span class="line"><span class="comment"># error用以处理Warning，ignore处理DeprecationWarning</span></span><br><span class="line">filterwarnings(<span class="string">"error"</span>)</span><br><span class="line">filterwarnings(<span class="string">"ignore"</span>, category=DeprecationWarning)</span><br><span class="line">warn(<span class="string">"Something is very wrong!"</span>, DeprecationWarning)</span><br><span class="line">warn(<span class="string">"Something else."</span>)</span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File "test.py", line 6, in &lt;module&gt;</span></span><br><span class="line"><span class="comment">#     warn("Something else.")</span></span><br><span class="line"><span class="comment"># UserWarning: Something else.</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>XinYS</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2020/04/02/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%BC%82%E5%B8%B8/">http://yoursite.com/2020/04/02/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%BC%82%E5%B8%B8/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/python/"># python</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/04/02/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%81%E7%94%9F%E6%88%90%E5%99%A8/">第九章 迭代器、生成器</a>
+            
+            
+            <a class="next" rel="next" href="/2020/04/02/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E7%B1%BB/">第七章 类</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© XinYS | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

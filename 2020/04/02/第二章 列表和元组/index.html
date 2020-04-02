@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="XinYS">
+
+
+
+
+
+<title>第二章 列表和元组 | XinYS&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">XinYS&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">XinYS&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">第二章 列表和元组</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">XinYS</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 2, 2020&nbsp;&nbsp;23:20:08</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/python/">python</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="第二章-列表和元组"><a href="#第二章-列表和元组" class="headerlink" title="第二章 列表和元组"></a>第二章 列表和元组</h2><h3 id="2-1-序列"><a href="#2-1-序列" class="headerlink" title="2.1 序列"></a>2.1 序列</h3><ul>
+<li>序列主要有列表、元组、字符串</li>
+<li>python中的容器基本上可视为可包含其他对象的对象，主要的容器有序列（列表和元组）、映射（字典）和集合<h3 id="2-2-通用资格检查"><a href="#2-2-通用资格检查" class="headerlink" title="2.2 通用资格检查"></a>2.2 通用资格检查</h3></li>
+</ul>
+<p><strong>成员资格检查</strong></p>
+<ul>
+<li>一般而言，运算符in检查指定的对象是否为序列的成员（一个元素），但在字符串中可用以检查指定字符串是否为其他字符串的子串。</li>
+</ul>
+<p><strong>初始化</strong></p>
+<ul>
+<li>初始化固定长度的空列表<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sequence = [<span class="literal">None</span>] * <span class="number">10</span></span><br><span class="line"><span class="comment"># [None, None, None, None, None, None, None, None, None, None]</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-3-列表"><a href="#2-3-列表" class="headerlink" title="2.3 列表"></a>2.3 列表</h3></li>
+</ul>
+<p><strong>list</strong></p>
+<ul>
+<li>使用list来创建列表，参数可为任何序列</li>
+<li>由于不能像修改列表那样修改字符串，因此可以用list方法使用字符串创建列表<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = list(<span class="string">'hello'</span>)</span><br><span class="line"><span class="comment"># ['h', 'e', 'l', 'l', 'o']</span></span><br><span class="line"><span class="comment"># 将字符列表转换为字符串</span></span><br><span class="line"><span class="string">''</span>.join(a)</span><br><span class="line"><span class="comment"># hello</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>基本操作</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除元素</span></span><br><span class="line">names = [<span class="string">'Alice'</span>, <span class="string">'Beth'</span>]</span><br><span class="line"><span class="keyword">del</span> names[<span class="number">1</span>]</span><br><span class="line"><span class="comment"># ['Alice']</span></span><br><span class="line"><span class="comment"># 切片赋值</span></span><br><span class="line"><span class="comment"># 可将切片替换为长度不同的序列，插入或删除元素</span></span><br><span class="line">numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">numbers[<span class="number">1</span>:<span class="number">4</span>] = [<span class="number">0</span>]</span><br><span class="line"><span class="comment"># [1, 0, 5]</span></span><br><span class="line"><span class="comment"># 插入元素</span></span><br><span class="line">numbers = [<span class="number">1</span>, <span class="number">5</span>]</span><br><span class="line">numbers[<span class="number">1</span>:<span class="number">1</span>] = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="comment"># [1, 2, 3, 4, 5]</span></span><br><span class="line"><span class="comment"># 注意这种错误用法，列表的此类操作对象一般不能为单个元素的值</span></span><br><span class="line">numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">numbers[<span class="number">1</span>:<span class="number">4</span>] = <span class="number">0</span></span><br><span class="line"><span class="comment"># TypeError: can only assign an iterable</span></span><br><span class="line"><span class="comment"># 注意在numpy的array中切片的赋值与此处完全不同，此处略去</span></span><br></pre></td></tr></table></figure>
+<p><strong>列表方法</strong></p>
+<ul>
+<li>就地修改：不会返回修改之后的新列表（返回值为None），而是直接修改旧列表<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意！以下所列出方法均为就地修改且不返回任何值</span></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="comment"># append 将一个对象附加到列表末尾</span></span><br><span class="line">a.append(<span class="number">4</span>)</span><br><span class="line"><span class="comment"># [1, 2, 3, 4]</span></span><br><span class="line"><span class="comment"># extend 将一个列表附加到列表末尾</span></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">b = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">a.extend(b)</span><br><span class="line"><span class="comment"># [1, 2, 3, 4, 5, 6]</span></span><br><span class="line"><span class="comment"># insert 在指定位置插入对象</span></span><br><span class="line">a.insert(<span class="number">3</span>, <span class="string">'zero'</span>)</span><br><span class="line"><span class="comment"># [1, 2, 3, 'zero', 4, 5, 6]</span></span><br><span class="line"><span class="comment"># remove 删除第一个为指定值的元素</span></span><br><span class="line">a.remove(<span class="string">'zero'</span>)</span><br><span class="line"><span class="comment"># [1, 2, 3, 4, 5, 6]</span></span><br><span class="line"><span class="comment"># reverse 列表逆序</span></span><br><span class="line">a.reverse()</span><br><span class="line"><span class="comment"># [6, 5, 4, 3, 2, 1]</span></span><br><span class="line"><span class="comment"># sort 列表排序</span></span><br><span class="line">a.sort()</span><br><span class="line"><span class="comment"># [1, 2, 3, 4, 5, 6]</span></span><br><span class="line"><span class="comment"># clear 清空</span></span><br><span class="line">a.clear()</span><br></pre></td></tr></table></figure></li>
+<li>其他方法<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># copy 复制列表</span></span><br><span class="line"><span class="comment"># 常规复制只是将另一个名称关联到列表</span></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">b = a</span><br><span class="line">b[<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">print(a)</span><br><span class="line"><span class="comment"># [1, 0, 3]</span></span><br><span class="line"><span class="comment">######################</span></span><br><span class="line"><span class="comment"># 若要a指向不同的列表，就必须将b关联到a的副本</span></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">b = a.copy()</span><br><span class="line">b[<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">print(a)</span><br><span class="line"><span class="comment"># [1, 2, 3]</span></span><br><span class="line"><span class="comment"># count 计算指定的元素在列表中出现的次数</span></span><br><span class="line"><span class="comment"># index 返回指定值在列表中第一次出现的索引</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pop 唯一既修改列表又返回非None值的列表方法</span></span><br><span class="line"><span class="comment"># 删除并返回一个元素（默认为末尾元素）</span></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">x = a.pop()</span><br><span class="line">print(a)</span><br><span class="line"><span class="comment"># [1, 2]</span></span><br><span class="line">print(x)</span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line">a.pop(<span class="number">0</span>)</span><br><span class="line"><span class="comment"># [2]</span></span><br><span class="line"><span class="comment"># pop可实现堆栈的数据结构，在python中没有提供push，用append代替</span></span><br><span class="line"><span class="comment"># 队列的实现：可用pop(0)实现出队，但一般使用模块collections中的deque</span></span><br></pre></td></tr></table></figure></li>
+<li>排序<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 由于sort不返回任何值，可以使用sorted方法获取排序之后列表的副本</span></span><br><span class="line">a = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>]</span><br><span class="line">b = sorted(a)</span><br><span class="line">print(a)</span><br><span class="line"><span class="comment"># [2, 4, 3, 1]</span></span><br><span class="line">print(b)</span><br><span class="line"><span class="comment"># [1, 2, 3, 4]</span></span><br><span class="line"><span class="comment">###########################</span></span><br><span class="line"><span class="comment"># sort(list, key, reverse)</span></span><br><span class="line"><span class="comment"># 参数key类似于cmp，将其设置为用于排序的函数，</span></span><br><span class="line"><span class="comment"># 具体来说，使用它为每个元素创建一个键，再根据这些键对元素进行排序</span></span><br><span class="line">a = [<span class="string">'aardvark'</span>, <span class="string">'abalone'</span>, <span class="string">'acme'</span>, <span class="string">'add'</span>]</span><br><span class="line">a.sort(key=len)</span><br><span class="line">print(a)</span><br><span class="line"><span class="comment"># ['add', 'acme', 'abalone', 'aardvark']</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-4-元组"><a href="#2-4-元组" class="headerlink" title="2.4 元组"></a>2.4 元组</h3></li>
+<li>元组可视为不可修改的列表</li>
+<li>元组主要用作映射中的键以及集合的成员<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建元组</span></span><br><span class="line"><span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span></span><br><span class="line"><span class="comment"># (1, 2, 3)</span></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment"># (1, 2, 3)</span></span><br><span class="line">()</span><br><span class="line"><span class="comment"># ()</span></span><br><span class="line"><span class="comment"># 注意逗号！</span></span><br><span class="line"><span class="number">42</span></span><br><span class="line"><span class="comment"># 42</span></span><br><span class="line"><span class="number">42</span>,</span><br><span class="line"><span class="comment"># (42,)</span></span><br><span class="line"><span class="number">3</span> * (<span class="number">40</span> + <span class="number">2</span>)</span><br><span class="line"><span class="comment"># 126</span></span><br><span class="line"><span class="number">3</span> * (<span class="number">40</span> + <span class="number">2</span>,)</span><br><span class="line"><span class="comment"># (42, 42, 42)</span></span><br><span class="line"><span class="comment">#######################</span></span><br><span class="line"><span class="comment"># tuple 将序列转换为元组</span></span><br><span class="line">tuple([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="comment"># (1, 2, 3)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>XinYS</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2020/04/02/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%88%97%E8%A1%A8%E5%92%8C%E5%85%83%E7%BB%84/">http://yoursite.com/2020/04/02/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%88%97%E8%A1%A8%E5%92%8C%E5%85%83%E7%BB%84/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/python/"># python</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/04/02/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">第三章 字符串</a>
+            
+            
+            <a class="next" rel="next" href="/2020/04/02/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">第一章 基础知识</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© XinYS | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

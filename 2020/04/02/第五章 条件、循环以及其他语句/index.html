@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="XinYS">
+
+
+
+
+
+<title>第五章 条件、循环以及其他语句 | XinYS&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">XinYS&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">XinYS&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">第五章 条件、循环以及其他语句</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">XinYS</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 2, 2020&nbsp;&nbsp;23:21:13</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/python/">python</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="第五章-条件、循环以及其他语句"><a href="#第五章-条件、循环以及其他语句" class="headerlink" title="第五章 条件、循环以及其他语句"></a>第五章 条件、循环以及其他语句</h2><h3 id="5-1-再谈print和import"><a href="#5-1-再谈print和import" class="headerlink" title="5.1 再谈print和import"></a>5.1 再谈print和import</h3><p><strong>print</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sep指定分隔符（默认为空格），end指定结束字符（默认换行）</span></span><br><span class="line">print(arg1, arg2, ..., sep=<span class="string">' '</span>, end=<span class="string">'\n'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-赋值"><a href="#5-2-赋值" class="headerlink" title="5.2 赋值"></a>5.2 赋值</h3><p><strong>序列解包（可迭代对象解包）</strong></p>
+<ul>
+<li>将一个序列（或任何可迭代对象）解包，同时（并行）给多个变量赋值<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">x, y, z = <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span></span><br><span class="line">print(x, y, z)</span><br><span class="line"><span class="comment"># 1 2 3</span></span><br><span class="line"><span class="comment"># 注意此处反应了并行赋值的特点</span></span><br><span class="line">x, y = y, x</span><br><span class="line">print(x, y, z)</span><br><span class="line"><span class="comment"># 2 1 3</span></span><br><span class="line"><span class="comment"># 可使用*来收集多余的值，*可放在任何位置，其返回为一个列表</span></span><br><span class="line">x, y, *t, z = <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span></span><br><span class="line">print(x, y, z, t)</span><br><span class="line"><span class="comment"># 1 2 3 []</span></span><br><span class="line">x, y, *t = <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span></span><br><span class="line"><span class="comment"># 1 2 [3, 4, 5]</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>链式赋值</strong></p>
+<ul>
+<li>将多个变量关联到一个值<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x = y = somefunction()</span><br><span class="line"><span class="comment"># 等价于下面的代码</span></span><br><span class="line">x = somefunction()</span><br><span class="line">y = x</span><br><span class="line"><span class="comment"># 在某些情况下与下面的代码不等价</span></span><br><span class="line">x = somefunction()</span><br><span class="line">y = somefunction()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>增强赋值</strong></p>
+<ul>
+<li>*=, /=, %=, +=, -= （就地修改）<h3 id="5-4-条件语句"><a href="#5-4-条件语句" class="headerlink" title="5.4 条件语句"></a>5.4 条件语句</h3></li>
+</ul>
+<p><strong>布尔值</strong></p>
+<ul>
+<li>在用作布尔表达式时，以下被视为假<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 标准值False和None,各种类型的数值0,空序列、空映射都被视为假</span></span><br><span class="line"><span class="literal">False</span> <span class="literal">None</span> <span class="number">0</span> <span class="string">""</span> () [] &#123;&#125;</span><br><span class="line"><span class="comment"># 虽然其布尔值为假，但是这些对象并不相等</span></span><br></pre></td></tr></table></figure></li>
+<li>其他值都视为真（任何python值都被视为真值）</li>
+</ul>
+<p><strong>条件表达式</strong></p>
+<ul>
+<li>可以视为C语言中三目运算符的python版本</li>
+<li>如果条件为真（if后面的语句），表达式结果为第一个值，否则返回第二个值<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">status = <span class="string">'friends'</span> <span class="keyword">if</span> name.endswith(<span class="string">'Alice'</span>) <span class="keyword">else</span> <span class="string">'stranger'</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>条件语句</strong></p>
+<ul>
+<li>条件<ul>
+<li>比较运算符<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 相等运算符 ==</span></span><br><span class="line"><span class="comment"># python不支持对不兼容类型的比较</span></span><br><span class="line"><span class="comment"># 相同运算符 is</span></span><br><span class="line"><span class="comment"># is检查两个对象是否相同，虽然x和z指向的列表的值和序列完全一致，但并非是同一个对象</span></span><br><span class="line">x = y = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">z = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">print(x == y)</span><br><span class="line"><span class="comment"># True</span></span><br><span class="line">print(x == z)</span><br><span class="line"><span class="comment"># True</span></span><br><span class="line">print(x <span class="keyword">is</span> z)</span><br><span class="line"><span class="comment"># False</span></span><br><span class="line"><span class="comment">#################</span></span><br><span class="line"><span class="comment"># 成员资格运算符 in</span></span><br><span class="line"><span class="comment"># 字符串和序列的比较</span></span><br><span class="line"><span class="comment"># 字符串是根据字母排列顺序进行比较，实际上是根据其Unicode字符的码点顺序值进行排列</span></span><br><span class="line"><span class="string">"alpha"</span> &lt; <span class="string">"beta"</span></span><br><span class="line"><span class="comment"># True</span></span><br><span class="line"><span class="comment"># 可以使用ord和chr来进行转换</span></span><br><span class="line">print(ord(<span class="string">'a'</span>), ord(<span class="string">'b'</span>))</span><br><span class="line"><span class="comment"># 97 98</span></span><br><span class="line">print(chr(<span class="number">97</span>))</span><br><span class="line"><span class="comment"># a</span></span><br><span class="line"><span class="comment"># 若序列元素为其他序列，将按照相同规则进行比较</span></span><br><span class="line">[<span class="number">2</span>, [<span class="number">1</span>, <span class="number">4</span>]] &lt; [<span class="number">2</span>, [<span class="number">1</span>, <span class="number">5</span>]]</span><br><span class="line"><span class="comment"># True</span></span><br></pre></td></tr></table></figure></li>
+<li>布尔运算符<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">and</span> <span class="keyword">or</span> <span class="keyword">not</span> </span><br><span class="line"><span class="comment"># 短路 / 延迟求值</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<p><strong>断言</strong></p>
+<ul>
+<li>assert充当检查点，使程序错误条件出现时立即崩溃，并打印AssertionError语句<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可在条件语句后添加一个字符串对断言进行说明</span></span><br><span class="line">age = <span class="number">-1</span></span><br><span class="line"><span class="keyword">assert</span> <span class="number">0</span> &lt; age &lt; <span class="number">100</span>, <span class="string">'The age must be realistic'</span></span><br><span class="line"><span class="comment"># AssertionError: The age must be realistic</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-5-循环"><a href="#5-5-循环" class="headerlink" title="5.5 循环"></a>5.5 循环</h3></li>
+</ul>
+<p><strong>迭代字典</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">d = &#123;<span class="string">'x'</span>: <span class="number">1</span>, <span class="string">'y'</span>: <span class="number">2</span>, <span class="string">'z'</span>: <span class="number">3</span>&#125;</span><br><span class="line"><span class="comment"># key in d 等同于 key in d.keys()</span></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> d:</span><br><span class="line">    print(key, <span class="string">'correspond to'</span>, d[key])</span><br><span class="line"><span class="comment"># x correspond to 1</span></span><br><span class="line"><span class="comment"># y correspond to 2</span></span><br><span class="line"><span class="comment"># z correspond to 3</span></span><br></pre></td></tr></table></figure>
+<p><strong>并行迭代 zip</strong></p>
+<ul>
+<li>zip用于将“缝合”任意数量的序列<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意是任意数量，当序列长度不相同时，以最短的序列为标准</span></span><br><span class="line">a = range(<span class="number">10</span>)</span><br><span class="line">b = range(<span class="number">7</span>)</span><br><span class="line">c = range(<span class="number">5</span>)</span><br><span class="line">d = list(zip(a, b, c))</span><br><span class="line">print(d)</span><br><span class="line"><span class="comment"># [(0, 0, 0), (1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4)]</span></span><br></pre></td></tr></table></figure></li>
+<li>返回值可用于迭代；若要查看其内容，可用list将其转换为列表<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">keys = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</span><br><span class="line">values = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">z = zip(keys, values)</span><br><span class="line"><span class="comment"># &lt;zip object at 0x00000215E8FACD88&gt;</span></span><br><span class="line">lz = list(z)</span><br><span class="line"><span class="comment"># [('a', 1), ('b', 2), ('c', 3), ('d', 4)]</span></span><br><span class="line">l = list(zip(keys, values))</span><br><span class="line">print(l)</span><br><span class="line"><span class="comment"># [('a', 1), ('b', 2), ('c', 3), ('d', 4)]</span></span><br><span class="line"><span class="comment"># 此处用于迭代的序列可为zip()的结果，也可为list(zip())的结果</span></span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> l:</span><br><span class="line">    print(key, <span class="string">'is correspond to'</span>, value)</span><br><span class="line"><span class="comment"># a is correspond to 1</span></span><br><span class="line"><span class="comment"># b is correspond to 2</span></span><br><span class="line"><span class="comment"># c is correspond to 3</span></span><br><span class="line"><span class="comment"># d is correspond to 4</span></span><br><span class="line"><span class="comment">###########################</span></span><br><span class="line"><span class="comment"># 但应注意此处此处的z已经过list,已经为空，若使用z进行解包则无返回值</span></span><br><span class="line"><span class="comment"># 打印list前后的z的值，仍返回相同地址</span></span><br><span class="line">keys = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</span><br><span class="line">values = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">z = zip(keys, values)</span><br><span class="line">print(z)</span><br><span class="line"><span class="comment"># &lt;zip object at 0x000001D2964FCE48&gt;</span></span><br><span class="line">lz = list(z)</span><br><span class="line">print(lz)</span><br><span class="line"><span class="comment"># [('a', 1), ('b', 2), ('c', 3), ('d', 4)]</span></span><br><span class="line">print(z)</span><br><span class="line"><span class="comment"># &lt;zip object at 0x000001D2964FCE48&gt;</span></span><br><span class="line">print(list(z))</span><br><span class="line"><span class="comment"># []</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>迭代时获取索引（枚举） enumerate</strong><br><strong>反向迭代 reversed / 排序后迭代 sorted</strong></p>
+<ul>
+<li>二者可用于任何序列或可迭代对象，返回逆序或排序后的结果</li>
+<li>reversed和zip一样返回一个可迭代对象，这个对象可用于for循环和例如join等方法，但是不能直接查看其内容，不能对其进行索引和切片操作，也不能直接对其调用列表的方法，需先用list进行类型转换</li>
+<li>与zip相同，reversed的返回结果经list之后变为空<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'hello, world!'</span></span><br><span class="line">print(reversed(s))</span><br><span class="line"><span class="comment"># &lt;reversed object at 0x000001CCE12CF940&gt;</span></span><br><span class="line">print(<span class="string">''</span>.join(reversed(s)))</span><br><span class="line"><span class="comment"># !dlrow ,olleh</span></span><br><span class="line">print(sorted(s))</span><br><span class="line"><span class="comment"># [' ', '!', ',', 'd', 'e', 'h', 'l', 'l', 'l', 'o', 'o', 'r', 'w']</span></span><br><span class="line"><span class="comment"># 若要按字母表排序但结果保留大小写，可设置key参数</span></span><br><span class="line">print(sorted(<span class="string">'aBc'</span>))</span><br><span class="line"><span class="comment"># ['B', 'a', 'c']</span></span><br><span class="line">print(sorted(<span class="string">'aBc'</span>, key=str.lower))</span><br><span class="line"><span class="comment"># ['a', 'B', 'c']</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>break / continue</strong></p>
+<ul>
+<li>循环中的if/break语句将循环分为两个部分</li>
+<li>直观的理解：第一部分负责设置，第二部分在循环条件为真时使用第一部分初始化的数据<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">  word = input(<span class="string">"please input a word: "</span>)</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> word: <span class="keyword">break</span></span><br><span class="line">  <span class="comment"># 使用这个单词做些事情</span></span><br><span class="line">  print(<span class="string">"The word is"</span>, word)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>循环中的else</strong></p>
+<ul>
+<li>在for循环和while循环中都可使用else语句</li>
+<li>在循环正常结束时才调用，因此可以判断循环是否正常结束<h3 id="5-6-简单推导"><a href="#5-6-简单推导" class="headerlink" title="5.6 简单推导"></a>5.6 简单推导</h3></li>
+<li>列表推导：从其他列表创建列表<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print([x*x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>) <span class="keyword">if</span> x % <span class="number">3</span> == <span class="number">0</span>])</span><br><span class="line"><span class="comment"># [0, 9, 36, 81]</span></span><br><span class="line">print([(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">3</span>) <span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">3</span>)])</span><br><span class="line"><span class="comment"># [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]</span></span><br></pre></td></tr></table></figure></li>
+<li>使用圆括号代替方括号不能实现元组推导，而是创建生成器</li>
+<li>字典推导：不同点在于使用冒号表示键值对<h3 id="5-7-pass-del-exec"><a href="#5-7-pass-del-exec" class="headerlink" title="5.7 pass/del/exec"></a>5.7 pass/del/exec</h3></li>
+</ul>
+<p><strong>pass</strong></p>
+<ul>
+<li>用作占位符</li>
+</ul>
+<p><strong>del</strong></p>
+<ul>
+<li>用于删除变量或数据结构的成员，但不能用于删除值</li>
+<li>在之前对于clear()的探讨中，对x = y,将x置为None或空列表/字典时，y并未发生变化，这是由于将x置为空只是修改了这一名称的关联，而并没有对值进行修改</li>
+<li>但当把y也置为空时，这一字典就漂浮在内存中，python编辑器会将其直接删除，这一机制称为垃圾收集<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除字典中的项</span></span><br><span class="line">d = &#123;<span class="string">'x'</span>: <span class="number">1</span>, <span class="string">'y'</span>: <span class="number">2</span>, <span class="string">'z'</span>: <span class="number">3</span>&#125;</span><br><span class="line"><span class="keyword">del</span> d[<span class="string">'x'</span>]</span><br><span class="line">print(d)</span><br><span class="line"><span class="comment"># &#123;'y': 2, 'z': 3&#125;</span></span><br><span class="line"><span class="comment">####################</span></span><br><span class="line">x = y = <span class="number">1</span></span><br><span class="line"><span class="keyword">del</span> x</span><br><span class="line">print(y)</span><br><span class="line"><span class="comment"># 1</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>exec/eval</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># exec 将字符串作为代码执行</span></span><br><span class="line"><span class="comment"># eval 计算并返回用字符串表示的表达式的结果</span></span><br><span class="line"><span class="comment"># 为避免安全隐患，使用字典作为其命名空间（作用域）</span></span><br><span class="line"><span class="comment"># 指定为命名空间的字典包含很多内容，在其中自动添加了包含所有内置函数和值的字典__builtins__</span></span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</span><br><span class="line">scop = &#123;&#125;</span><br><span class="line">exec(<span class="string">'sqrt = 1'</span>, scop)</span><br><span class="line">sqrt(<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 2.0</span></span><br><span class="line">scop[<span class="string">'sqrt'</span>]</span><br><span class="line"><span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
+<hr>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>XinYS</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2020/04/02/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E6%9D%A1%E4%BB%B6%E3%80%81%E5%BE%AA%E7%8E%AF%E4%BB%A5%E5%8F%8A%E5%85%B6%E4%BB%96%E8%AF%AD%E5%8F%A5/">http://yoursite.com/2020/04/02/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E6%9D%A1%E4%BB%B6%E3%80%81%E5%BE%AA%E7%8E%AF%E4%BB%A5%E5%8F%8A%E5%85%B6%E4%BB%96%E8%AF%AD%E5%8F%A5/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/python/"># python</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/04/02/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%8A%BD%E8%B1%A1/">第六章 抽象</a>
+            
+            
+            <a class="next" rel="next" href="/2020/04/02/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%AD%97%E5%85%B8/">第四章 字典</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© XinYS | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
