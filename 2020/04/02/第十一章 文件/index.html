@@ -234,23 +234,13 @@
 <td align="center">+</td>
 <td align="center">读写模式（与其他模式结合使用）</td>
 </tr>
-<tr>
-<td align="center"><strong>默认模式rt</strong></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">- 将文件视为经过编码的Unicode文本，因此将自动执行解码和编码，且默认使用UTF-8编码</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">- 可使用关键字参数encoding和errors来指定其他编码和Unicode错误处理策略</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">- <strong>自动转换换行字符</strong>，读取时，自动替换其他行尾字符(‘\r’、’\n’、’\r\n’)为’\n’；写入时，将’\n’替换为系统的默认行尾字符(os.linesep)</td>
-<td align="center"></td>
-</tr>
 </tbody></table>
+<p><strong>默认模式rt</strong></p>
+<ul>
+<li>将文件视为经过编码的Unicode文本，因此将自动执行解码和编码，且默认使用UTF-8编码</li>
+<li>可使用关键字参数encoding和errors来指定其他编码和Unicode错误处理策略</li>
+<li><strong>自动转换换行字符</strong>，读取时，自动替换其他行尾字符(‘\r’、’\n’、’\r\n’)为’\n’；写入时，将’\n’替换为系统的默认行尾字符(os.linesep)</li>
+</ul>
 <p><strong>通用换行模式</strong></p>
 <ul>
 <li>在此模式下，readlines等方法能识别所有合法的换行符</li>
