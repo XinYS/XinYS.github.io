@@ -198,7 +198,8 @@
         </header>
 
         <div class="post-content">
-            <h1 id="numpy笔记"><a href="#numpy笔记" class="headerlink" title="numpy笔记"></a>numpy笔记</h1><ul>
+            <h1 id="numpy笔记"><a href="#numpy笔记" class="headerlink" title="numpy笔记"></a>numpy笔记</h1><p><strong>随机数生成</strong></p>
+<ul>
 <li><strong>numpy.random.random(size=None)</strong><ul>
 <li>产生[0.0, 1.0)之间的浮点数</li>
 </ul>
@@ -220,11 +221,12 @@
 </ul>
 </li>
 <li><strong>numpy.arange()</strong></li>
-<li><strong>numpy.nonzero()</strong></li>
-<li><strong>chararray.mean()</strong></li>
-<li><strong>numpy.pad(a, (1, 1), mode=’constant’, constant_values=0)</strong></li>
-<li><strong>chararray.max(),    chararray.min()</strong></li>
 </ul>
+<hr>
+<p><strong>numpy.nonzero()</strong></p>
+<p><strong>chararray.mean()</strong></p>
+<p><strong>numpy.pad(a, (1, 1), mode=’constant’, constant_values=0)</strong></p>
+<p><strong>chararray.max(),    chararray.min()</strong></p>
 <hr>
 <p><strong>数组取整</strong></p>
 <ul>
@@ -235,17 +237,13 @@
 <li><strong>numpy.around(x,)</strong><br>四舍五入到给定的小数位</li>
 </ul>
 <hr>
-<ul>
-<li><p><strong>chararray.size</strong></p>
+<p><strong>chararray.size</strong></p>
 <ul>
 <li>总元素个数</li>
 </ul>
-</li>
-<li><p><strong>chararray.itemsize</strong></p>
+<p><strong>chararray.itemsize</strong></p>
 <ul>
 <li>单个元素所占的内存</li>
-</ul>
-</li>
 </ul>
 <hr>
 <p><strong>numpy.chararray.ndim</strong></p>
@@ -265,17 +263,27 @@
 </ul>
 <hr>
 <p><strong>numpy.diag(v, k=0)</strong></p>
-<blockquote>
-<p><strong>Parameters</strong></p>
 <ul>
-<li>v : array_like<br>若v为2D数组，返回其第k对角线上的1D数组；<br>若v为1D数组，返回以其为第k对角线的2D数组</li>
-<li>k : int, optional<br>默认值为0；</li>
+<li><strong>Parameters</strong><ul>
+<li>v : array_like<ul>
+<li>若v为2D数组，返回其第k对角线上的1D数组；</li>
+<li>若v为1D数组，返回以其为第k对角线的2D数组</li>
 </ul>
-<p><strong>Returns</strong></p>
-<ul>
-<li>out : ndarray<br>The extracted diagonal or constructed diagonal array.</li>
+</li>
+<li>k : int, optional<ul>
+<li>默认值为0；</li>
 </ul>
-</blockquote>
+</li>
+</ul>
+</li>
+<li><strong>Returns</strong><ul>
+<li>out : ndarray<ul>
+<li>The extracted diagonal or constructed diagonal array.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <hr>
 <p><strong>数组切片</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line"><span class="comment"># array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span></span><br><span class="line"><span class="comment"># [start : end : step]</span></span><br><span class="line"><span class="comment"># 切取[start, end)范围的元素</span></span><br><span class="line"><span class="comment"># step&gt;0时,end&gt;start,从起点到终点</span></span><br><span class="line"><span class="comment"># step&lt;0时,start&gt;end,从终点到起点</span></span><br><span class="line"><span class="comment"># 注意[::]只是两个:结合，而不是新的符号！</span></span><br><span class="line"><span class="comment"># 逆序</span></span><br><span class="line">a[::<span class="number">-1</span>]</span><br><span class="line"><span class="comment"># array([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])</span></span><br><span class="line"><span class="comment"># 指定下标开始逆序</span></span><br><span class="line">a[<span class="number">3</span>::<span class="number">-1</span>]</span><br><span class="line"><span class="comment"># array([3, 2, 1, 0])</span></span><br><span class="line"><span class="comment"># 选择指定间隔的下标</span></span><br><span class="line">a = np.zeros(<span class="number">10</span>)</span><br><span class="line">a[::<span class="number">2</span>] = <span class="number">1</span></span><br><span class="line"><span class="comment"># array([1., 0., 1., 0., 1., 0., 1., 0., 1., 0.])</span></span><br><span class="line">b = np.zeros(<span class="number">10</span>)</span><br><span class="line">b[<span class="number">1</span>::<span class="number">2</span>] = <span class="number">1</span></span><br><span class="line"><span class="comment"># array([0., 1., 0., 1., 0., 1., 0., 1., 0., 1.])</span></span><br></pre></td></tr></table></figure>
@@ -294,9 +302,8 @@
 <p><strong>numpy.unravel_index(indices, shape, order=’C’)</strong></p>
 <ul>
 <li>indices中的值对应于shape维度的数组展开为一维数组的下标，返回indices在shape维度下的下标</li>
-<li>默认为以行为主展开，indices可为整数或整数数组<blockquote>
-<p><strong>Parameters</strong></p>
-<ul>
+<li>默认为以行为主展开，indices可为整数或整数数组</li>
+<li><strong>Parameters</strong><ul>
 <li>indices : array_like</li>
 <li>shape : tuple of ints</li>
 <li>order : {‘C’, ‘F’}, optional<ul>
@@ -305,11 +312,13 @@
 </ul>
 </li>
 </ul>
-<p><strong>Returns</strong></p>
-<ul>
-<li>unraveled_coords : tuple of ndarray<br>与indices维度相同</li>
+</li>
+<li><strong>Returns</strong><ul>
+<li>unraveled_coords : tuple of ndarray<ul>
+<li>与indices维度相同</li>
 </ul>
-</blockquote>
+</li>
+</ul>
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.unravel_index([<span class="number">22</span>, <span class="number">41</span>, <span class="number">37</span>], (<span class="number">7</span>,<span class="number">6</span>))</span><br><span class="line"><span class="comment"># (array([3, 6, 6]), array([4, 5, 1]))</span></span><br></pre></td></tr></table></figure>
@@ -366,7 +375,7 @@
 <hr>
 <p><strong>and, or, &amp;, |</strong></p>
 <ul>
-<li>在DataFrame的切片过程，要注意逻辑变量的使用,需要求得满足多个逻辑条件的数据时，要使用&amp; 和|，在某些条件下用and/ or会报错<br>ValueError : The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()</li>
+<li>在DataFrame的切片过程，要注意逻辑变量的使用,需要求得满足多个逻辑条件的数据时，要使用&amp; 和 | ，在某些条件下用and/ or会报错<br>ValueError : The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()</li>
 </ul>
 <hr>
 <p><strong>numpy.copysign(a, b)</strong></p>
@@ -376,9 +385,10 @@
 <hr>
 <p><strong>numpy.seterr(all=None, divide=None, over=None, under=None, invalid=None)</strong></p>
 <ul>
-<li>设置对浮点错误的处理方式<blockquote>
-<p><strong>Parameters</strong><br><em>all{‘ignore’, ‘warn’, ‘raise’, ‘call’, ‘print’, ‘log’}, optional</em><br>Set treatment for all types of floating-point errors at once:</p>
-<ul>
+<li>设置对浮点错误的处理方式</li>
+<li><strong>Parameters</strong><ul>
+<li><em>all{‘ignore’, ‘warn’, ‘raise’, ‘call’, ‘print’, ‘log’}, optional</em></li>
+<li>Set treatment for all types of floating-point errors at once:</li>
 <li>ignore: Take no action when the exception occurs.</li>
 <li>warn: Print a RuntimeWarning (via the Python warnings module).</li>
 <li>raise: Raise a FloatingPointError.</li>
@@ -386,12 +396,14 @@
 <li>print: Print a warning directly to stdout.</li>
 <li>log: Record error in a Log object specified by seterrcall.<br>The default is not to change the current behavior.</li>
 </ul>
-<p><strong>Returns</strong></p>
-<ul>
-<li>old_settings: dict<br>Dictionary containing the <u>old settings</u>.</li>
+</li>
+<li><strong>Returns</strong><ul>
+<li>old_settings: dict<ul>
+<li>Dictionary containing the <u>old settings</u>.<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># numpy.seterr()返回的是本次处理之前的设置</span></span><br><span class="line">old_setting = np.seterr(all=<span class="string">'ignore'</span>)</span><br><span class="line">np.seterr(over=<span class="string">'raise'</span>)</span><br><span class="line"><span class="comment"># &#123;'divide': 'ignore', 'over': 'ignore', 'under': 'ignore', 'invalid': 'ignore'&#125;</span></span><br><span class="line"><span class="comment"># old_setting存储之前的设置</span></span><br><span class="line">np.seterr(**old_setting)</span><br><span class="line"><span class="comment"># &#123;'divide': 'ignore', 'over': 'raise', 'under': 'ignore', 'invalid': 'ignore'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用OrderedDict获取本次处理后的设置</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</span><br><span class="line">np.seterr(all=<span class="string">'ignore'</span>)</span><br><span class="line">OrderedDict(np.geterr())</span><br><span class="line"><span class="comment"># OrderedDict([('divide', 'ignore'), ('over', 'ignore'), ('under', 'ignore'), ('invalid', 'ignore')])</span></span><br><span class="line">np.seterr(over=<span class="string">'raise'</span>)</span><br><span class="line">OrderedDict(np.geterr())</span><br><span class="line"><span class="comment"># OrderedDict([('divide', 'ignore'), ('over', 'raise'), ('under', 'ignore'), ('invalid', 'ignore')])</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># numpy.seterr()返回的是本次处理之前的设置</span></span><br><span class="line">old_setting = np.seterr(all=<span class="string">'ignore'</span>)</span><br><span class="line">np.seterr(over=<span class="string">'raise'</span>)</span><br><span class="line"><span class="comment"># &#123;'divide': 'ignore', 'over': 'ignore', 'under': 'ignore', 'invalid': 'ignore'&#125;</span></span><br><span class="line"><span class="comment"># old_setting存储之前的设置</span></span><br><span class="line">np.seterr(**old_setting)</span><br><span class="line"><span class="comment"># &#123;'divide': 'ignore', 'over': 'raise', 'under': 'ignore', 'invalid': 'ignore'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用OrderedDict获取本次处理后的设置</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</span><br><span class="line">np.seterr(all=<span class="string">'ignore'</span>)</span><br><span class="line">OrderedDict(np.geterr())</span><br><span class="line"><span class="comment"># OrderedDict([('divide', 'ignore'), ('over', 'ignore'), ('under', 'ignore'), ('invalid', 'ignore')])</span></span><br><span class="line">np.seterr(over=<span class="string">'raise'</span>)</span><br><span class="line">OrderedDict(np.geterr())</span><br><span class="line"><span class="comment"># OrderedDict([('divide', 'ignore'), ('over', 'raise'), ('under', 'ignore'), ('invalid', 'ignore')])</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 </li>
 </ul>
 <hr>
